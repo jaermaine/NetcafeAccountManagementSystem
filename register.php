@@ -7,14 +7,15 @@
 </head>
 <body>
     <form action = "account-creation.php" method = "POST">
-        <input type = "text" name = "username" required>
         <label for = "username">Enter username:</label>
+        <input type = "text" name = "username" required><br>
 
-        <input type = "text" name = "firstname" required>
         <label for = "firstname">Enter first name:</label>
-
-        <input type = "text" name = "lastname" required>
+        <input type = "text" name = "firstname" required><br>
+        
         <label for = "lastname">Enter last name:</label>
+        <input type = "text" name = "lastname" required><br>
+        
     </form>
 </body>
 </html>
