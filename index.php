@@ -10,10 +10,10 @@
 
     <form action = "login-validate.php" method = "POST">
         <label for = "username">Username: </label>
-        <input type = "text" required><br>
+        <input type = "text" name = "username" required><br>
 
-        <label for = "username">Password: </label>
-        <input type = "text" required><br>
+        <label for = "password">Password: </label>
+        <input type = "text" name = "password" required><br>
 
         <input type = "submit" name = "submit" value = "Login">
     </form>
