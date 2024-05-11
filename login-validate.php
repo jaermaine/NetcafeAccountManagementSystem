@@ -16,7 +16,7 @@
 
     $query = "SELECT `username` FROM `users` WHERE `username` = '". $user . "';";
 
-    if(mysqli_query($conn, $query)){
+    if(mysqli_query($conn, $query) == $user){
         echo "Username found";
     }else{
         echo "Username is located in the system";
