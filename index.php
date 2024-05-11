@@ -6,6 +6,7 @@
     <title>Document</title>
 </head>
     <!-- Login Page -->
+    <h1>Login</h1>
 
     <div>
         <form action = "login-validate.php" method = "POST">
