@@ -16,8 +16,6 @@
             <input type = "password" name = "password" required><br>
 
             <input type = "submit" name = "submit" value = "Login">
-
-            <a href = "register.php">Create an account</a>
         </form>
     </div>
 </body>
