@@ -19,6 +19,6 @@
     if(mysqli_query($conn, $query)){
         echo "Username found";
     }else{
-        echo "Username is located in the system"
+        echo "Username is located in the system";
     }
 ?>
