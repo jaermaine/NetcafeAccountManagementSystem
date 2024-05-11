@@ -11,4 +11,14 @@
     }
 
     echo "Connection established";
+
+    $user = $_POST["username"];
+
+    $query = "SELECT username FROM users WHERE username = '" . $user . "'";
+
+    if(mysqli_query($conn, $query)){
+        echo "Username found";
+    }else{
+        echo "Username is located in the system"
+    }
 ?>
