@@ -14,6 +14,7 @@
 
     $user = $_POST["username"];
 
+    //fix this part of the code
     $query = "SELECT COUNT(`username`) FROM `users` WHERE `username` = '". $user . "';";
 
     if(mysqli_query($conn, $query) != "0"){
