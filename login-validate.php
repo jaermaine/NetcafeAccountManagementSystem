@@ -16,7 +16,7 @@
 
     $query = "SELECT COUNT(`username`) FROM `users` WHERE `username` = '". $user . "';";
 
-    if(mysqli_query($conn, $query) > 0){
+    if(mysqli_query($conn, $query) != "0"){
         echo "Username found";
     }else{
         echo "Username is located in the system";
