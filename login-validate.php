@@ -13,6 +13,7 @@
     echo "Connection established";
 
     $user = $_POST["username"];
+    $pass = $_POST["password"];
 
     //fix this part of the code
     $query = "SELECT `username`, `user_password`, `role_id` FROM `users`";
@@ -23,6 +24,9 @@
     if($user != $details["username"]){
         echo "Username not found";
     }else{
-        echo "Username found successfully";
+        if($pass != $details["user_password"]){
+            echo "Incorrect password";
+        }
+        echo "Login Successful";
     }
 ?>
