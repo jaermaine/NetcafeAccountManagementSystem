@@ -26,7 +26,8 @@
     }else{
         if($pass != $details["user_password"]){
             echo "Incorrect password";
-        }
+        }else{
         echo "Login Successful";
+        }
     }
 ?>
