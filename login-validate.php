@@ -15,11 +15,14 @@
     $user = $_POST["username"];
 
     //fix this part of the code
-    $query = "SELECT COUNT(`username`) FROM `users` WHERE `username` = '". $user . "';";
+    $query = "SELECT `username`, `user_password`, `role_id` FROM `users`";
+    $query_result = mysqli_query($conn, $query);
 
-    if(mysqli_query($conn, $query) != "0"){
-        echo "Username found";
+    $details = mysqli_fetch_assoc($query_result);
+
+    if($user != $details["username"]){
+        echo "Username not found";
     }else{
-        echo "Username is located in the system";
+        echo "Username found successfully";
     }
 ?>
