@@ -27,7 +27,14 @@
         if($pass != $details["user_password"]){
             echo "Incorrect password";
         }else{
-        echo "Login Successful";
+            switch($details["role_id"]){
+                case 1:
+                    echo "<script>window.location = 'admin-page' </script>";
+                case 2:
+                    echo "<script>window.location = 'staff-page' </script>";
+                case 3:
+                    echo "<script>window.location = 'user-page' </script>";
+            }   
         }
     }
 ?>
