@@ -24,12 +24,14 @@
 
     if($user != $details["username"]){
         $_SESSION['message'] = "Username not found";
-        header($_SERVER['HTTP_REFERER']);
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit;
     }
     
     if ($pass != $details["user_password"]){
         $_SESSION['message'] = "Incorrect Password";
-        header($_SERVER['HTTP_REFERER']);
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        exit;
     }else{
         switch($details["role_id"]){
         case 1:
