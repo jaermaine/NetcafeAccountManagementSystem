@@ -12,8 +12,6 @@
         die("Connection Failed " . mysqli_connect_error());
     }
 
-    echo "Connection established";
-
     $user = $_POST["username"];
     $pass = $_POST["password"];
 
