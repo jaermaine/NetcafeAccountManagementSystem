@@ -42,3 +42,8 @@
     //implement a session and store the username to a session global variable to display on the home page
     //have a set of seconds before switching to the home page 
 ?>
+
+
+<?php
+    session_destroy();
+?>
