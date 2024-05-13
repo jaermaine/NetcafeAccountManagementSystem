@@ -17,7 +17,7 @@
 
     $_SESSION['username'] = $user;
 
-    $query = "SELECT `username`, `user_password`, `role_id` FROM `users`";
+    $query = "SELECT `username`, `user_password` FROM `users`";
     $query_result = mysqli_query($conn, $query);
 
     $details = mysqli_fetch_assoc($query_result);
