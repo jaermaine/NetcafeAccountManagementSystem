@@ -11,7 +11,7 @@
 </head>
 <body>
     <?php
-        echo $_SESSION['username'];
-    ?>
+        echo "<h1>Welcome back " . $_SESSION['username'] . "</h1>";
+    ?></body>
 </body>
 </html>
