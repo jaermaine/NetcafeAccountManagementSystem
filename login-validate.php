@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     $servername = "localhost";
     $username = "root";
     $password = "";
@@ -15,7 +17,8 @@
     $user = $_POST["username"];
     $pass = $_POST["password"];
 
-    //fix this part of the code
+    $_SESSION['username'] = $user;
+
     $query = "SELECT `username`, `user_password`, `role_id` FROM `users`";
     $query_result = mysqli_query($conn, $query);
 
@@ -37,4 +40,7 @@
             }   
         }
     }
+
+    //implement a session and store the username to a session global variable to display on the home page
+    //have a set of seconds before switching to the home page 
 ?>
