@@ -28,7 +28,8 @@
     
     if ($pass != $details["user_password"]){
         echo "Incorrect Password";
-    }else{switch($details["role_id"]){
+    }else{
+        switch($details["role_id"]){
         case 1:
             echo "<script>window.location = 'admin-page.php' </script>";
         case 2:
