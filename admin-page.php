@@ -12,6 +12,10 @@
 <body>
     <?php
         echo "<h1>Welcome back " . $_SESSION['username'] . "</h1>";
-    ?></body>
+    ?>
+    
+    <form action = "index.php" method = "POST">
+        <input type = "submit" value = "Logout">
+    </form>
 </body>
 </html>
