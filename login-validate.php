@@ -28,15 +28,14 @@
     
     if ($pass != $details["user_password"]){
         echo "Incorrect Password";
-    }
-    
-    switch($details["role_id"]){
+    }else{switch($details["role_id"]){
         case 1:
             echo "<script>window.location = 'admin-page.php' </script>";
         case 2:
             echo "<script>window.location = 'staff-page.php' </script>";
         case 3:
             echo "<script>window.location = 'user-page.php' </script>";
+        }
     }
 
     //implement a session and store the username to a session global variable to display on the home page
