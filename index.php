@@ -19,7 +19,9 @@
 
             <label for = "password">Password: </label>
             <input type = "password" name = "password" required><br>
-
+            <?php
+                echo $_SESSION['message'];
+            ?>
             <input type = "submit" name = "submit" value = "Login">
         </form>
     </div>

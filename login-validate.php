@@ -23,11 +23,13 @@
     $details = mysqli_fetch_assoc($query_result);
 
     if($user != $details["username"]){
-        echo "Username not found";
+        $_SESSION['message'] = "Username not found";
+        header($_SERVER['HTTP_REFERER']);
     }
     
     if ($pass != $details["user_password"]){
-        echo "Incorrect Password";
+        $_SESSION['message'] = "Incorrect Password";
+        header($_SERVER['HTTP_REFERER']);
     }else{
         switch($details["role_id"]){
         case 1:
