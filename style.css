@@ -161,6 +161,33 @@ body {
 }
 
 /* Style for the dropdown container */
+.deposit {
+  font-family: Arial, sans-serif; /* Change font family */
+  color: #ffff; /* Change font color */
+  position: absolute;
+  top: 590px;
+  left: 865px;
+  }
+
+  /* Style for the label */
+  .deposit label {
+  font-weight: bold; /* Example: Make label text bold */
+  font-size: 25px;
+  }
+
+    /* Style for the select dropdown */
+  .deposit input {
+  font-family: Arial, sans-serif; /* Change font family */
+  font-size: 25px;
+  color: #555; /* Change font color */
+  padding: 10px; /* Example: Add some padding */
+  border: 1px solid #ccc; /* Example: Add border */
+  border-radius: 6px; /* Example: Add border radius */
+  background-color: #f7f7f7; /* Example: Change background color */
+  width: 185px;
+  }
+
+/* Style for the dropdown container */
 .role {
   font-family: Arial, sans-serif; /* Change font family */
   color: #ffff; /* Change font color */

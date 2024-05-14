@@ -44,6 +44,7 @@
         </div>
 
         <div class = "deposit">
+        <label for = "deposit">Initial hours</label>
         <input type = "number" name = "deposit"><br>
         </div>
 
