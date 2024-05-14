@@ -18,5 +18,5 @@
        header("admin-page.php"); 
     }else{
         header("register.php");
-        $_SESSION['registration_message'];
+        $_SESSION['registration_message'] = "Account created";
     }

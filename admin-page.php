@@ -16,6 +16,10 @@
 <body>
     <?php
         echo "<h1>Welcome back " . $_SESSION['username'] . "</h1>";
+
+        if(isset($_SESSION['registration_message'])){
+            echo $_SESSION['registration_message'];
+        }
     ?>
     
     <form action = "register.php" method = "POST">
