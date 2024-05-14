@@ -15,8 +15,8 @@
     ({$role_id}, {$username}, {$password}, {$first_name}, {$last_name}, {$role_id}, 0, {$deposit});";
 
     if(mysqli_query($_SESSION['connect'], $query)){
-       header("admin-page.php"); 
+       header("admin-page.php");
+       $_SESSION['registration_message'] = "Account created"; 
     }else{
         header("register.php");
-        $_SESSION['registration_message'] = "Account created";
     }
