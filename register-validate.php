@@ -16,7 +16,6 @@
 
     if(mysqli_query($_SESSION['connect'], $query)){
        header("admin-page.php");
-       $_SESSION['login'] = true;
        $_SESSION['registration_message'] = "Account created"; 
     }else{
         header("register.php");

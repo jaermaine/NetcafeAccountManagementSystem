@@ -35,7 +35,7 @@
         <label for = "deposit">Initial hours</label>
         <input type = "number" name = "deposit"><br>
 
-        <input type = "submit" value = "Confirm">
+        <input type = "submit" name = "submit" value = "Confirm">
     </form>
 </body>
 </html>
