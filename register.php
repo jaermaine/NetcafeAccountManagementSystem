@@ -19,24 +19,24 @@
 
     </div>
         <div class = "fname">
-        <input type = "text" name = "first_name" placeholder="First Name" required><br>
+        <input type = "text" id = "Uname" name = "first_name" placeholder="First Name" required><br>
         </div>
         
         <div class = "lname">
-        <input type = "text" name = "last_name" placeholder="Last Name"required><br>
+        <input type = "text" id = "Uname" name = "last_name" placeholder="Last Name"required><br>
         </div>
 
         <div class = "uname">
-        <input type = "text" name = "username" placeholder="Username"><br>
+        <input type = "text" id = "Uname" name = "username" placeholder="Username"><br>
         </div>
 
         <div class = "pass">
-        <input type = "text" name = "password" placeholder="Password"required><br>
+        <input type = "text" id = "Uname" name = "password" placeholder="Password"required><br>
         </div>
 
         <div class = "role">
         <label for = "role">Role:</label>
-        <select name = "role" required>
+        <select name = "role" id = "Role" required>
             <option value = "1">Admin</option>
             <option value = "2">Staff</option>
             <option value = "3">User</option>
