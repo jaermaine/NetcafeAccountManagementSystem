@@ -30,7 +30,7 @@
             <option value = "3">User</option>
         </select><br>
 
-        <label for = "deposite">Initial hours</label>
+        <label for = "deposit">Initial hours</label>
         <input type = "number" name = "deposit"><br>
 
         <input type = "submit" value = "Confirm">
