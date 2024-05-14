@@ -20,11 +20,9 @@
 
     <div class = "Login">
         <form action = "login-validate.php" method = "POST">
-            <label for = "username">Username: </label>
-            <input type = "text" id = "Uname" name = "username" required><br>
+            <input type = "text" id = "Uname" name = "username" placeholder = "Username" required><br>
 
-            <label for = "password">Password: </label>
-            <input type = "password" id = "Pass" name = "password" required><br>
+            <input type = "password" id = "Pass" name = "password" placeholder = "Username" required><br>
             <?php
                 if(!empty($_SESSION['message'])){
                     echo $_SESSION['message'];
