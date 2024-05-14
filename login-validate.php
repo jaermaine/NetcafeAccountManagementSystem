@@ -33,6 +33,9 @@
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit;
     }else{
+
+        $_SESSION['role'] = $details['role'];
+
         switch($details["role_id"]){
         case 1:
             echo "<script>window.location = 'admin-page.php' </script>";
