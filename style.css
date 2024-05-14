@@ -135,9 +135,22 @@ body {
   left: 705px;
 }
 
+.pass{
+  position: absolute;
+  top: 450px;
+  left: 705px;
+}
+
+.deposit{
+  position: absolute;
+  top: 550px;
+  left: 705px;
+}
+
 .fname input,
 .lname input,
-.uname input{
+.uname input,
+.pass input{
     width: 500px;
     height: 75px;
     font-size: 30px;
@@ -151,7 +164,7 @@ body {
   font-family: Arial, sans-serif; /* Change font family */
   color: #ffff; /* Change font color */
   position: absolute;
-  top: 490px;
+  top: 590px;
   left: 865px;
   }
 

@@ -17,9 +17,8 @@
 
     </div>
     
-    < action = "validate\register-validate.php" method = "POST">
+    <form action = "validate\register-validate.php" method = "POST">
         <div class = "fname">
-        <label for = "first_name">First Name: </label>
         <input type = "text" name = "first_name" placeholder="First Name" required><br>
         </div>
         
@@ -29,12 +28,10 @@
         </div>
 
         <div class = "uname">
-        <label for = "username">Username:</label>
         <input type = "text" name = "username" placeholder="Username"><br>
         </div>
 
-        <div class = "uname">
-        <label for = "password">Password:</label>
+        <div class = "pass">
         <input type = "text" name = "password" placeholder="Password"required><br>
         </div>
 
@@ -47,8 +44,10 @@
         </select><br>
         </div>z
 
+        <div class = "deposit">
         <label for = "deposit">Initial hours</label>
         <input type = "number" name = "deposit"><br>
+        </div>
 
         <input type = "submit" class = "button-30" name = "submit" value = "Confirm">
     </form>
