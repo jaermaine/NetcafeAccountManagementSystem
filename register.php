@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 <body>
-    < action = "register-validate.php" method = "POST">
+    <form action = "register-validate.php" method = "POST">
         <input type = "text" name = "first_name" required>
         <label for = "first_name">First Name: </label><br>
         
