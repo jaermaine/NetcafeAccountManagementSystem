@@ -14,8 +14,8 @@
     $role_id = $_POST['role'];
     $deposit = $_POST['deposit'];
 
-    $query = "INSERT INTO users(`user_id`, `username`, `user_password`, `first_name`, `last_name`, `role_id`, `status_id`, `remaining_hours`) VALUE 
-    (115, '{$username}', '{$password}', '{$first_name}', '{$last_name}', '{$role_id}', 0, '{$deposit}');";
+    $query = "INSERT INTO users(`username`, `user_password`, `first_name`, `last_name`, `role_id`, `status_id`, `remaining_hours`) VALUE 
+    ('{$username}', '{$password}', '{$first_name}', '{$last_name}', '{$role_id}', 0, '{$deposit}');";
 
     if(mysqli_query($conn, $query)){
        header("Location: admin-page.php");
