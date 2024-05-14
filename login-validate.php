@@ -2,7 +2,7 @@
     session_start();
 
     if(!isset($_POST['submit'])){
-        header("index.php");
+        header("Location: index.php");
     }
 
     $servername = "localhost";

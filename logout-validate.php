@@ -1,7 +1,7 @@
 <?php
 
     if(!isset($_POST['submit'])){
-        header("index.php");
+        header("Location: index.php");
     }
 
     header("Location: index.php");

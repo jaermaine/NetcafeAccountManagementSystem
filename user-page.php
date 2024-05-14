@@ -2,7 +2,7 @@
     session_start();
 
     if(!isset($_POST['role'])){
-        header("index.php");
+        header("Location: index.php");
     }
 ?>
 
