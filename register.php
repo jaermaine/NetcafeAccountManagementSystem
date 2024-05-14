@@ -11,27 +11,27 @@
 </head>
 <body>
     <form action = "register-validate.php" method = "POST">
-        <input type = "text" name = "first_name" required>
-        <label for = "first_name">First Name: </label><br>
+        <label for = "first_name">First Name: </label>
+        <input type = "text" name = "first_name" required><br>
         
-        <input type = "text" name = "last_name" required>
-        <label for = "last_name">Last Name:</label><br>
+        <label for = "last_name">Last Name:</label>
+        <input type = "text" name = "last_name" required><br>
 
-        <input type = "text" name = "username" required>
-        <label for = "username">Username:</label><br>
+        <label for = "username">Username:</label>
+        <input type = "text" name = "username" required><br>
 
-        <input type = "text" name = "password" required>
-        <label for = "password">Password:</label><br>
+        <label for = "password">Password:</label>
+        <input type = "text" name = "password" required><br>
 
+        <label for = "role">Role:</label>
         <select name = "role" required>
             <option value = "1">Admin</option>
             <option value = "2">Staff</option>
             <option value = "3">User</option>
-        </select>
-        <label for = "role">Role:</label><br>
+        </select><br>
 
-        <input type = "number" name = "deposit">
-        <label for = "deposite">Initial hours</label><br>
+        <label for = "deposite">Initial hours</label>
+        <input type = "number" name = "deposit"><br>
 
         <input type = "submit" value = "Confirm">
     </form>
