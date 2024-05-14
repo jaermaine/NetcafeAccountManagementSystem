@@ -23,11 +23,11 @@
     ?>
     
     <form action = "register.php" method = "POST">
-        <input type = "submit" value = "Create">
+        <input type = "submit" name = "register" value = "Create">
     </form>
 
     <form action = "logout-validate.php" method = "POST">
-        <input type = "submit" value = "Logout">
+        <input type = "submit" name = "logout" value = "Logout">
     </form>
 </body>
 </html>
