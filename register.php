@@ -1,6 +1,6 @@
 <?php
     if(!isset($_POST['register'])){
-        header("Location: index.php");
+        header("Location: /NetcafeAccountManagementSystem/index.php");
     }
 ?>
 
@@ -9,33 +9,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Registration</title>
+    <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
-    <form action = "validate\register-validate.php" method = "POST">
+    <div class = "box">
+
+    </div>
+    
+    < action = "validate\register-validate.php" method = "POST">
+        <div class = "fname">
         <label for = "first_name">First Name: </label>
-        <input type = "text" name = "first_name" required><br>
+        <input type = "text" name = "first_name" placeholder="First Name" required><br>
+        </div>
         
+        <div class = "lname">
         <label for = "last_name">Last Name:</label>
-        <input type = "text" name = "last_name" required><br>
+        <input type = "text" name = "last_name" placeholder="Last Name"required><br>
+        </div>
 
+        <div class = "uname">
         <label for = "username">Username:</label>
-        <input type = "text" name = "username" required><br>
+        <input type = "text" name = "username" placeholder="Username"><br>
+        </div>
 
+        <div class = "uname">
         <label for = "password">Password:</label>
-        <input type = "text" name = "password" required><br>
+        <input type = "text" name = "password" placeholder="Password"required><br>
+        </div>
 
+        <div class = "role">
         <label for = "role">Role:</label>
         <select name = "role" required>
             <option value = "1">Admin</option>
             <option value = "2">Staff</option>
             <option value = "3">User</option>
         </select><br>
+        </div>z
 
         <label for = "deposit">Initial hours</label>
         <input type = "number" name = "deposit"><br>
 
-        <input type = "submit" name = "submit" value = "Confirm">
+        <input type = "submit" class = "button-30" name = "submit" value = "Confirm">
     </form>
 </body>
 </html>
