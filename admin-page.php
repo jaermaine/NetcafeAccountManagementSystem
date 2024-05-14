@@ -14,6 +14,10 @@
         echo "<h1>Welcome back " . $_SESSION['username'] . "</h1>";
     ?>
     
+    <form action = "register.php" method = "POST">
+        <input type = "submit" value = "Create">
+    </form>
+
     <form action = "logout-validate.php" method = "POST">
         <input type = "submit" value = "Logout">
     </form>
