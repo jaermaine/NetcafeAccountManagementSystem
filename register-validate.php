@@ -11,11 +11,11 @@
     $last_name = $_POST['last_name'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-    $role = $_POST['role'];
+    $role_id = $_POST['role'];
     $deposit = $_POST['deposit'];
 
     $query = "INSERT INTO users(`user_id`, `username`, `user_password`, `first_name`, `last_name`, `role_id`, `status_id`, `remaining_hours`) VALUE 
-    ({114}, {$username}, {$password}, {$first_name}, {$last_name}, {$role_id}, 0, {$deposit});";
+    (114, {$username}, {$password}, {$first_name}, {$last_name}, {$role_id}, 0, {$deposit});";
 
     if(mysqli_query($conn, $query)){
        header("admin-page.php");
