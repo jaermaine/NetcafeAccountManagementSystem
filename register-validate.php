@@ -1,4 +1,8 @@
 <?php
+    if(!isset($_POST['submit'])){
+        header("index.php");
+    }
+    
     $role_id = uniqid('2024-');
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];
