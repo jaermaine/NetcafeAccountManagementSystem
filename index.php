@@ -11,7 +11,7 @@
     <link rel = "stylesheet" href = "style.css">
 </head>
     <div class = "box">
-
+    
     </div>
 
     <div class = "icon">
@@ -22,7 +22,7 @@
         <form action = "login-validate.php" method = "POST">
             <input type = "text" id = "Uname" name = "username" placeholder = "Username" required><br>
 
-            <input type = "password" id = "Pass" name = "password" placeholder = "Username" required><br>
+            <input type = "password" id = "Pass" name = "password" placeholder = "Password" required><br>
             <?php
                 if(!empty($_SESSION['message'])){
                     echo $_SESSION['message'];
