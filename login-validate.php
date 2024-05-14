@@ -3,7 +3,7 @@
 
     if(!isset($_POST['submit'])){
         header("Location: index.php");
-    }
+    }else{
 
     $servername = "localhost";
     $username = "root";
@@ -51,6 +51,7 @@
             echo "<script>window.location = 'user-page.php' </script>";
         }
     }
+}
 
     //implement a session and store the username to a session global variable to display on the home page
     //have a set of seconds before switching to the home page 
