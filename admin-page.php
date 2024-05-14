@@ -1,7 +1,7 @@
 <?php
     session_start();
 
-    if(!isset($_SESSION['role'])) {
+    if(!isset($_SESSION['submit'])) {
         header('Location: index.php');
     }
 ?>
