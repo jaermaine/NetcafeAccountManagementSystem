@@ -40,7 +40,7 @@
         exit;
     }else{
 
-        $_SESSION['role'] = $details['role'];
+        $_SESSION['role'] = $details['role_id'];
 
         switch($details["role_id"]){
         case 1:
