@@ -3,8 +3,11 @@
 
     if(!isset($_POST['submit'])){
         session_destroy();
-        header("Location: index.php");
-    }else{
+        session_unset();
+        echo '<script>alert("May mali")</script>';
+        /* header("Location: index.php"); */
+        
+    }
 
     $servername = "localhost";
     $username = "root";
@@ -39,7 +42,7 @@
         $_SESSION['message'] = "Incorrect Password";
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit;
-    }else{
+    } else{
 
         $_SESSION['role'] = $details['role_id'];
 
@@ -52,7 +55,6 @@
             echo "<script>window.location = 'user-page.php' </script>";
         }
     }
-}
 
     //implement a session and store the username to a session global variable to display on the home page
     //have a set of seconds before switching to the home page 
