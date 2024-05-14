@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    if(!isset($_POST['submit'])){
+        header("index.php");
+    }
 ?>
 
 <!DOCTYPE html>

@@ -10,6 +10,9 @@
     $query = "INSERT INTO Users(`user_id`, `username`, `user_password`, `first_name`, `last_name`, `role_id`, `status_id`) VALUE 
     ({$role_id}, {$username}, {$password}, {$first_name}, {$last_name}, {$role_id}, 0, {$deposit});";
 
-    if(mysqli_query($conn, $query)){
-
+    if(mysqli_query($_SESSION['connect'], $query)){
+       header("admin-page.php"); 
+    }else{
+        header("register.php");
+        $_SESSION['registration_message'];
     }
