@@ -1,0 +1,204 @@
+body {
+    /*background-image: url("frontend/frontend.png");*/
+    background-color: #333333;
+    overflow: hidden
+}
+
+.box {
+    background-color: #545454;
+    position: absolute;
+    top: 77px;
+    left: 635px;
+    width: 300px;
+    height: 695px;
+    opacity: .4;
+    border-radius: 30px;
+    }
+    
+    .icon img{
+        position: absolute;
+        width: 220px; 
+        height: auto; 
+        top: 125px;
+        left: 850px;
+    }
+
+    .Login {
+      position: absolute;
+      top: 370px;
+      left: 700px;
+      display: flex; /* Use flexbox to easily control spacing */
+      flex-direction: column; /* Arrange fields vertically */
+      gap: 7px; /* Add space between fields */
+  }
+  
+  .Login input[type="text"],
+  .Login input[type="password"] {
+      /* Keep your existing styles */
+      padding-left: 60px;
+      background-position: 10px center;
+      background-size: auto 30px; 
+      width: 500px;
+      height: 75px;
+      font-size: 30px;
+      box-sizing: border-box;
+      border: 3px solid #ccc;
+      border-radius: 4px;
+      background-repeat: no-repeat;
+      padding-bottom: 2px;
+  }
+  
+
+.Login input[type="text"] {
+    background-image: url("frontend/user.png");
+}
+
+.Login input[type="password"] {
+    background-image: url("frontend/pass.png");
+}
+
+.box {
+    background-color: #545454;
+    position: absolute;
+    top: 77px;
+    left: 635px;
+    width: 500px;
+    height: 695px;
+    padding: 50px;
+    margin: 20px;
+    }
+
+    .button-30 {
+    position: absolute;
+    top: 700px;
+    left:850px;
+      align-items: center;
+      appearance: none;
+      background-color: #FCFCFD;
+      border-radius: 4px;
+      border-width: 0;
+      box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+      box-sizing: border-box;
+      color: #36395A;
+      cursor: pointer;
+      display: inline-flex;
+      font-family: "JetBrains Mono",monospace;
+      height: 53px;
+      justify-content: center;
+      line-height: 1;
+      list-style: none;
+      overflow: hidden;
+      padding-left: 16px;
+      padding-right: 16px;
+      position: relative;
+      text-align: left;
+      text-decoration: none;
+      transition: box-shadow .15s,transform .15s;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      will-change: box-shadow,transform;
+      font-size: 40px;
+      width: 200px;
+    }
+    
+    .button-30:focus {
+      box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+    }
+    
+    .button-30:hover {
+      box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+      transform: translateY(-7px);
+    }
+    
+    .button-30:active {
+      box-shadow: #D6D6E7 0 3px 7px inset;
+      transform: translateY(2px);
+    }
+    
+.fname{
+  position: absolute;
+  top: 150px;
+  left: 705px;
+}
+
+.lname{
+  position: absolute;
+  top: 250px;
+  left: 705px;
+}
+
+.uname{
+  position: absolute;
+  top: 350px;
+  left: 705px;
+}
+
+.fname input,
+.lname input,
+.uname input{
+    width: 500px;
+    height: 75px;
+    font-size: 30px;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    border-radius: 8px;
+}
+
+/* Style for the dropdown container */
+.role {
+  font-family: Arial, sans-serif; /* Change font family */
+  color: #ffff; /* Change font color */
+  position: absolute;
+  top: 490px;
+  left: 865px;
+  }
+
+  /* Style for the label */
+  .role label {
+  font-weight: bold; /* Example: Make label text bold */
+  font-size: 25px;
+  }
+
+    /* Style for the select dropdown */
+  .role select {
+  font-family: Arial, sans-serif; /* Change font family */
+  font-size: 25px;
+  color: #555; /* Change font color */
+  padding: 10px; /* Example: Add some padding */
+  border: 1px solid #ccc; /* Example: Add border */
+  border-radius: 6px; /* Example: Add border radius */
+  background-color: #f7f7f7; /* Example: Change background color */
+  width: 185px;
+  }
+
+  /* Style for the options within the dropdown */
+  .role select option {
+  font-family: Arial, sans-serif; /* Change font family */
+  font-size: 25px;
+  color: #555; /* Change font color */
+  }
+
+/* Style for the radio button container */
+.statusAcc {
+  font-family: Arial, sans-serif; /* Change font family */
+  color: #333; /* Change font color */
+  position: absolute;
+  top: 600px;
+  left: 900px;
+}
+
+/* Style for the radio button input */
+.statusAcc input[type="radio"] {
+  transform: scale(1.5); /* Adjust the scale factor as needed */
+  margin-right: 5px; /* Example: Add some space between radio button and label */
+}
+
+/* Style for the radio button label */
+.statusAcc label {
+  font-family: Arial, sans-serif; /* Change font family */
+  color: #ffff; /* Change font color */
+  margin-right: 10px; /* Adjust margin for spacing between labels */
+  font-size: 25px;
+}
