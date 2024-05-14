@@ -4,7 +4,7 @@
     include 'db.php';
 
     if(!isset($_POST['submit'])){
-        header("Location: index.php");
+        header("Location: /NetcafeAccountManagementSystem/index.php");
     }
 
     $first_name = $_POST['first_name'];
@@ -18,8 +18,8 @@
     ('{$username}', '{$password}', '{$first_name}', '{$last_name}', '{$role_id}', 0, '{$deposit}');";
 
     if(mysqli_query($conn, $query)){
-       header("Location: admin-page.php");
+       header("Location: /NetcafeAccountManagementSystem/admin-page.php");
        $_SESSION['registration_message'] = "Account created"; 
     }else{
-        header("Location: register.php");
+        header("Location: /NetcafeAccountManagementSystem/register.php");
     }
