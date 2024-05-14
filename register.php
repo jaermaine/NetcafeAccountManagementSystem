@@ -23,7 +23,6 @@
         </div>
         
         <div class = "lname">
-        <label for = "last_name">Last Name:</label>
         <input type = "text" name = "last_name" placeholder="Last Name"required><br>
         </div>
 
@@ -42,7 +41,7 @@
             <option value = "2">Staff</option>
             <option value = "3">User</option>
         </select><br>
-        </div>z
+        </div>
 
         <div class = "deposit">
         <label for = "deposit">Initial hours</label>
