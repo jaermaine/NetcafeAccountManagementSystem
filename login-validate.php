@@ -1,13 +1,12 @@
 <?php
     session_start();
 
-    /* if(!isset($_POST['submit'])){
+    if(!isset($_POST['submit'])){
         session_destroy();
         session_unset();
         echo '<script>alert("May mali")</script>';
-        header("Location: index.php");
-        
-    } */
+        header("Location: index.php");   
+    }
 
     $servername = "localhost";
     $username = "root";
@@ -44,6 +43,7 @@
         exit;
     } else{
 
+        $_SESSION['login'] = true;
         $_SESSION['role'] = $details['role_id'];
 
         switch($details["role_id"]){
