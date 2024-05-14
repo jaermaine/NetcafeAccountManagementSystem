@@ -13,11 +13,11 @@
     <link rel = "stylesheet" href = "style.css">
 </head>
 <body>
+    
+    <form action = "validate\register-validate.php" method = "POST">
     <div class = "box">
 
     </div>
-    
-    <form action = "validate\register-validate.php" method = "POST">
         <div class = "fname">
         <input type = "text" name = "first_name" placeholder="First Name" required><br>
         </div>
