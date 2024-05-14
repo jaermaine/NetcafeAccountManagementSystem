@@ -37,11 +37,11 @@
 
         switch($details["role_id"]){
         case 1:
-            echo "<script>window.location = 'admin-page.php' </script>";
+            echo "<script>window.location = 'root\admin-page.php' </script>";
         case 2:
-            echo "<script>window.location = 'staff-page.php' </script>";
+            echo "<script>window.location = 'root\staff-page.php' </script>";
         case 3:
-            echo "<script>window.location = 'user-page.php' </script>";
+            echo "<script>window.location = 'root\user-page.php' </script>";
         }
     }
 
