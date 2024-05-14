@@ -18,21 +18,21 @@
     <div class = "box">
 
     </div>
-        <div class = "fname">
+        <div class = "fname"><br>
         <input type = "text" id = "Uname" name = "first_name" placeholder="First Name" required><br>
-        </div>
+        <br></div>
         
-        <div class = "lname">
+        <div class = "lname"><br>
         <input type = "text" id = "Uname" name = "last_name" placeholder="Last Name"required><br>
-        </div>
+        <br></div>
 
-        <div class = "uname">
+        <div class = "uname"><br>
         <input type = "text" id = "Uname" name = "username" placeholder="Username"><br>
-        </div>
+        <br></div>
 
-        <div class = "pass">
+        <div class = "pass"><br>
         <input type = "text" id = "Uname" name = "password" placeholder="Password"required><br>
-        </div>
+        <br></div>
 
         <div class = "role">
         <label for = "role">Role:</label>
