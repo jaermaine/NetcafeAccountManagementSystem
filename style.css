@@ -94,8 +94,8 @@ body {
       text-align: left;
       text-decoration: none;
       transition: box-shadow .15s,transform .15s;
-      user-select: none;
       -webkit-user-select: none;
+      user-select: none;
       touch-action: manipulation;
       white-space: nowrap;
       will-change: box-shadow,transform;
