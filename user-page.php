@@ -2,7 +2,7 @@
     session_start();
 
     if(!isset($_SESSION['login'])){
-        header("Location: index.php");
+        header("Location: \NetcafeAccountManagementSystem\index.php");
     }
 ?>
 
@@ -18,7 +18,7 @@
         echo "<h1>Welcome back " . $_SESSION['username'] . "</h1>";
     ?>
     
-    <form action = "logout-validate.php" method = "POST">
+    <form action = "\NetcafeAccountManagementSystem\logout-validate.php" method = "POST">
         <input type = "submit" value = "Logout">
     </form>
 </body>
