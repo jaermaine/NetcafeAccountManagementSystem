@@ -179,6 +179,7 @@ body {
   border-radius: 6px; /* Example: Add border radius */
   background-color: #f7f7f7; /* Example: Change background color */
   width: 185px;
+  margin-left: 170px;
   }
 
 /* Style for the dropdown container */
@@ -206,6 +207,7 @@ body {
   border-radius: 6px; /* Example: Add border radius */
   background-color: #f7f7f7; /* Example: Change background color */
   width: 185px;
+  margin-left: 250px;
   }
 
   /* Style for the options within the dropdown */
