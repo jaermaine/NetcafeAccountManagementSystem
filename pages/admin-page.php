@@ -26,7 +26,7 @@
         <input type = "submit" name = "register" value = "Create">
     </form>
 
-    <form action = "\validate\logout-validate.php" method = "POST">
+    <form action = "NetcafeAccountManagementSystem\validate\logout-validate.php" method = "POST">
         <input type = "submit" name = "logout" value = "Logout">
     </form>
 </body>

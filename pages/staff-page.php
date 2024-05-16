@@ -18,7 +18,7 @@
         echo "<h1>Welcome back " . $_SESSION['username'] . "</h1>";
     ?>
     
-    <form action = "\validate\logout-validate.php" method = "POST">
+    <form action = "NetcafeAccountManagementSystem\validate\logout-validate.php" method = "POST">
         <input type = "submit" value = "Logout">
     </form>
     
