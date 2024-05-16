@@ -2,7 +2,7 @@
     session_start();
 
     if(!isset($_SESSION['login'])) {
-        header('Location: /NetcafeAccountManagementSystem/login.php');
+        header('Location: ../login.php');
     }
 ?>
 
@@ -26,7 +26,7 @@
         <input type = "submit" name = "register" value = "Create">
     </form>
 
-    <form action = "NetcafeAccountManagementSystem\validate\logout-validate.php" method = "POST">
+    <form action = "..\validate\logout-validate.php" method = "POST">
         <input type = "submit" name = "logout" value = "Logout">
     </form>
 </body>

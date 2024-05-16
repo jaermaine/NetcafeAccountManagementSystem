@@ -4,7 +4,7 @@
     if(!isset($_POST['submit'])){
         session_destroy();
         session_unset();
-        header("Location: /NetcafeAccountManagementSystem/login.php");   
+        header("Location: ../login.php");   
     }
 
     include 'db.php';
@@ -36,11 +36,11 @@
 
         switch($details["role_id"]){
         case 1:
-            echo "<script>window.location = '/NetcafeAccountManagementSystem/pages/admin-page.php' </script>";
+            echo "<script>window.location = '../pages/admin-page.php' </script>";
         case 2:
-            echo "<script>window.location = '/NetcafeAccountManagementSystem/pages/staff-page.php' </script>";
+            echo "<script>window.location = '../pages/staff-page.php' </script>";
         case 3:
-            echo "<script>window.location = '/NetcafeAccountManagementSystem/pages/user-page.php' </script>";
+            echo "<script>window.location = '../pages/user-page.php' </script>";
         }
     }
 
