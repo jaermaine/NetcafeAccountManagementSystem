@@ -1,6 +1,6 @@
 <?php
     if(!isset($_POST['register'])){
-        header("Location: /NetcafeAccountManagementSystem/index.php");
+        header("Location: ../index.php");
     }
 ?>
 
@@ -14,7 +14,7 @@
 </head>
 <body>
     
-    <form action = "NetcafeAccountManagementSystem\validate\register-validate.php" method = "POST">
+    <form action = "..\validate\register-validate.php" method = "POST">
     <div class = "box">
 
     </div>
