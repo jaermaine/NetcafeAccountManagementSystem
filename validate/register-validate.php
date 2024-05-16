@@ -4,7 +4,7 @@
     include 'db.php';
 
     if(!isset($_POST['submit'])){
-        header("Location: /NetcafeAccountManagementSystem/index.php");
+        header("Location: /NetcafeAccountManagementSystem/login.php");
     }
 
     $first_name = $_POST['first_name'];

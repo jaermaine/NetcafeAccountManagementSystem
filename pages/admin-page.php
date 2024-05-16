@@ -2,7 +2,7 @@
     session_start();
 
     if(!isset($_SESSION['login'])) {
-        header('Location: /NetcafeAccountManagementSystem/index.php');
+        header('Location: /NetcafeAccountManagementSystem/login.php');
     }
 ?>
 
