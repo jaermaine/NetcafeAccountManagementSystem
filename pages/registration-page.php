@@ -14,7 +14,7 @@
 </head>
 <body>
     
-    <form action = "validate\register-validate.php" method = "POST">
+    <form action = "\validate\register-validate.php" method = "POST">
     <div class = "box">
 
     </div>
