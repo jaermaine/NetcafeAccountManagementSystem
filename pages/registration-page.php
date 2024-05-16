@@ -13,7 +13,11 @@
     <link rel = "stylesheet" href = "..\style.css">
 </head>
 <body>
-    
+
+    <form action = "<?php echo $_SERVER['HTTP_REFERER'];?>" method = "POST">
+        <input type = "submit" class = "button-31" name = "back" value = "Back">
+    </form>
+
     <form action = "..\validate\register-validate.php" method = "POST">
     <div class = "box">
 
