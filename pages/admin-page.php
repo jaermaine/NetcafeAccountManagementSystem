@@ -22,7 +22,7 @@
         }
     ?>
     
-    <form action = "register.php" method = "POST">
+    <form action = "registration-page.php" method = "POST">
         <input type = "submit" name = "register" value = "Create">
     </form>
 
