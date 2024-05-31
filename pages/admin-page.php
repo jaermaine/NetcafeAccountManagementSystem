@@ -5,6 +5,8 @@
         header('Location: ../index.php');
     }
 
+    $_SESSION['referer'] = "admin-page.php";
+
     include '../validate/db.php';
 ?>
 
