@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
 
     $username = $row["username"];
-    $password = $row["password"];
+    $password = password_verify('', $row["password"]);
     $first_name = $row["first_name"];
     $last_name = $row["last_name"];
     $role = $row["role_id"];

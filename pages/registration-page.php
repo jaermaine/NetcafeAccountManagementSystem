@@ -14,6 +14,10 @@
 </head>
 <body>
     
+    <form action = "<?php echo $_SERVER['HTTP_REFERER'];?>" method = "POST">
+        <input type = "submit" class = "button-31" name = "back" value = "Back">
+    </form>
+
     <form action = "..\validate\register-validate.php" method = "POST">
     <div class = "box">
 
@@ -40,6 +44,15 @@
             <option value = "1">Admin</option>
             <option value = "2">Staff</option>
             <option value = "3">User</option>
+        </select><br>
+        </div>
+
+        <div class = "status">
+        <label for = "status">Status:</label>
+        <select name = "status" id = "Status" required>
+            <option value = "1">Regular</option>
+            <option value = "2">VIP</option>
+            <option value = "3">Non-Customer</option>
         </select><br>
         </div>
 

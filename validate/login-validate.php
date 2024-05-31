@@ -14,7 +14,7 @@
 
     $_SESSION['username'] = $user;
 
-    $query = "SELECT `username`, `user_password`, `role_id` FROM `users` WHERE `username` = '{$user}'";
+    $query = "SELECT `username`, `password`, `role_id` FROM `account` WHERE `username` = '{$user}'";
     $query_result = mysqli_query($conn, $query);
 
     $details = mysqli_fetch_assoc($query_result);
@@ -25,7 +25,7 @@
         exit;
     }
     
-    if ($pass != $details["user_password"]){
+    if (!password_verify($pass,$details["password"])){
         $_SESSION['message'] = "Incorrect Password";
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit;
