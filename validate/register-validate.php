@@ -33,7 +33,6 @@ $query = "INSERT INTO account(`user_id`, `first_name`, `last_name`, `username`, 
 if (mysqli_query($conn, $query)) {
     header("Location: ../pages/admin-page.php");
     $_SESSION['registration_message'] = "Account created";
-    $_POST['register'] = true;
 } else {
     header("Location:" . $_SERVER['HTTP_REFERER']);
 }
