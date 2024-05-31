@@ -1,10 +1,10 @@
 <?php
 
     if(!isset($_POST['logout'])){
-        header("Location: ../login.php");
+        header("Location: ../index.php");
     }
 
-    header("Location: ../login.php");
+    header("Location: ../index.php");
     session_unset();
     session_destroy();
 ?>
