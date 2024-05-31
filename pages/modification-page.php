@@ -39,7 +39,7 @@
         <br></div>
 
         <div class = "pass"><br>
-        <input type = "text" id = "Uname" name = "password" placeholder="Password" value="<?php echo $password ?>"required><br>
+        <input type = "text" id = "Uname" name = "password" placeholder="Change Password" required><br>
         <br></div>
 
         <div class = "role">
