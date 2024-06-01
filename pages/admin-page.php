@@ -1,11 +1,11 @@
 <?php
     session_start();
+    $_SESSION['referer'] = "../pages/admin-page.php";
 
-    if(!isset($_SESSION['login'])) {
+    if(empty($_SESSION['login'])) {
         header('Location: ../index.php');
+        session_destroy();
     }
-
-    $_SESSION['referer'] = "admin-page.php";
 
     include '../validate/db.php';
 ?>
@@ -22,10 +22,11 @@
 <body>
     <?php
         echo "<h1>Welcome back " . $_SESSION['username'] . "</h1>";
+        if (isset($_SESSION['registration_message'])) echo $_SESSION['registration_message'];
     ?>
     
     <form action = "registration-page.php" method = "POST">
-        <input type = "submit" name = "register" value = "Create">
+        <input type = "submit" name = "register" value = "<?php echo $_SESSION['register'] = 'Create';?>">
     </form>
 
     <h2> List of Users</h2>
