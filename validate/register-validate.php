@@ -4,10 +4,10 @@ session_start();
 include 'db.php';
 
 if (!isset($_POST['submit'])) {
-    header("Location: ../login.php");
+    header("Location: ../index.php");
 }
 
-$cntuser_qry = "SELECT user_id, COUNT(*) as total FROM account";
+$cntuser_qry = "SELECT COUNT(*) as total FROM account";
 
 $cntuser_rslt = mysqli_query($conn, $cntuser_qry);
 if (mysqli_num_rows($cntuser_rslt) > 0) {
@@ -18,21 +18,31 @@ if (mysqli_num_rows($cntuser_rslt) > 0) {
     }
 }
 
-$first_name = $_POST['first_name'];
-$last_name = $_POST['last_name'];
-$username = $_POST['username'];
-$password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-$role = $_POST['role'];
-$status = $_POST['status'];
-$deposit = $_POST['deposit'];
+$usercheck_query = "SELECT COUNT(username) AS numrows FROM account WHERE username = '" . $_POST['username'] . "'";
+$usercheck_result = mysqli_query($conn, $usercheck_query);
+$usercheck_row = mysqli_fetch_assoc($usercheck_result);
+if ($usercheck_row['numrows'] == 1) {
+    $_SESSION['registration_message'] = "Username taken";
+    $_SESSION['register'] = 'Create';
+    header("Location: " . $_SESSION['referer']);
+} else {
 
-$query = "INSERT INTO account(`user_id`, `first_name`, `last_name`, `username`, `password`, `time`, `role_id`, `status_id`) VALUE 
+    $first_name = $_POST['first_name'];
+    $last_name = $_POST['last_name'];
+    $username = $_POST['username'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $role = $_POST['role'];
+    $status = $_POST['status'];
+    $deposit = $_POST['deposit'];
+
+    $query = "INSERT INTO account(`user_id`, `first_name`, `last_name`, `username`, `password`, `time`, `role_id`, `status_id`) VALUE 
     ('{$counter}', '{$first_name}', '{$last_name}', '{$username}', '{$password}', '{$deposit}', '{$role}', '{$status}');";
 
 
-if (mysqli_query($conn, $query)) {
-    header("Location: ../pages/admin-page.php");
-    $_SESSION['registration_message'] = "Account created";
-} else {
-    header("Location:" . $_SERVER['HTTP_REFERER']);
+    if (mysqli_query($conn, $query)) {
+        header("Location: ../pages/admin-page.php");
+        $_SESSION['registration_message'] = "Account created";
+    } else {
+        header("Location:" . $_SESSION['referer']);
+    }
 }
