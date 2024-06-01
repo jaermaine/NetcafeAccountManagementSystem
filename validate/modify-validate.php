@@ -1,5 +1,6 @@
 <?php
 include '../validate/db.php';
+include 'functions.php';
 
 $user_id = "";
 $username = "";
@@ -50,10 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     $res_u = $conn->query($sql_u);
     $array = mysqli_fetch_assoc($res_u);
 
-    if (mysqli_num_rows($res_u) > 0 && $username != $array['username']) {
-        echo "Username already taken";
-        header("Location: ../pages/modification-page.php");
-    } else {
+    if (checkUsername($conn, $_POST['username'])) {
         // updates details to the database
         $update = "UPDATE account
             SET username = '$username', password = '$password', first_name = '$first_name', last_name = '$last_name', role_id = '$role' WHERE user_id = $user_id";
@@ -65,7 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             echo "Invalid Query: " . $conn->error;
         }
 
-        echo "Successfully updated user's details";
+        $_SESSION['registration_message'] = "Successfully updated user's details";
 
         header("location: ../pages/admin-page.php");
 
