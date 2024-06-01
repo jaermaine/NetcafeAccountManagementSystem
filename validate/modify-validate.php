@@ -47,7 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
 
     // for finding if may same username sa database 
     $sql_u = "SELECT * FROM account WHERE username='$username'";
-    $res_u = mysqli_query($conn, $sql_u);
+    $res_u = $conn->query($sql_u);
     $array = mysqli_fetch_assoc($res_u);
 
     if (mysqli_num_rows($res_u) > 0 && $username != $array['username']) {
