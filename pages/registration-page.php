@@ -70,7 +70,6 @@ if (!isset($_SESSION['register'])) {
 
 
     </div>
-    </div>
 
 </body>
 
