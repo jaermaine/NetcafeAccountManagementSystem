@@ -1,6 +1,9 @@
 <?php
-if (!isset($_POST['register'])) {
+session_start();
+
+if (!isset($_SESSION['register'])) {
     header("Location: ../index.php");
+    session_destroy();
 }
 ?>
 
@@ -37,13 +40,13 @@ if (!isset($_POST['register'])) {
                             <ul>
                                 <li><label><input type="radio" name="role" value="1">Admin</label></li>
                                 <li><label><input type="radio" name="role" value="2">Staff</label></li>
-                                <li><label><input type="radio" name="role" value="3">User</label></li>
+                                <li><label><input type="radio" name="role" value="3" checked>User</label></li>
                             </ul>
                         </details>
                     </div><br>
 
                     <div class="statusaccount">
-                        <input name="status" type="radio" id="normal" class="statusaccount__input" value="1">
+                        <input name="status" type="radio" id="normal" class="statusaccount__input" value="1" checked>
                         <label for="normal" class="statusaccount__label">Normal</label>
                         <input name="status" type="radio" id="vip" class="statusaccount__input" value="2">
                         <label for="vip" class="statusaccount__label">VIP</label>
@@ -59,7 +62,8 @@ if (!isset($_POST['register'])) {
 
                     <input type="submit" class="button" name="submit" value="Confirm">
             </form>
-            <form action="<?php echo $_SERVER['HTTP_REFERER']; ?>" method="POST">
+
+            <form action="<?php echo $_SESSION['referer']; ?>" method="POST">
                 <input type="submit" class="button" name="back" value="Back">
             </form>
         </div>

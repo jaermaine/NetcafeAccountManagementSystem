@@ -12,28 +12,22 @@
     $user = $_POST["username"];
     $pass = $_POST["password"];
 
-    $_SESSION['username'] = $user;
-
     $query = "SELECT `username`, `password`, `role_id` FROM `account` WHERE `username` = '{$user}'";
     $query_result = mysqli_query($conn, $query);
 
     $details = mysqli_fetch_assoc($query_result);
 
-    if($user != $details["username"]){
-        $_SESSION['message'] = "Username not found";
-        header("Location: " . $_SERVER['HTTP_REFERER']);
-        exit;
-    }
+    $username = $user == $details['username'] ? true : false;
+    $password = password_verify($pass, $details["password"]);
     
-    if (!password_verify($pass,$details["password"])){
-        $_SESSION['message'] = "Incorrect Password";
+    if (!$username && $password){
+        $_SESSION['message'] = "Login Failed";
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit;
     } else{
-
+        $_SESSION['username'] = $user;
         $_SESSION['login'] = true;
-        $_SESSION['role'] = $details['role_id'];
-
+ 
         switch($details["role_id"]){
         case 1:
             echo "<script>window.location = '../pages/admin-page.php' </script>";
@@ -43,7 +37,4 @@
             echo "<script>window.location = '../pages/user-page.php' </script>";
         }
     }
-
-    //implement a session and store the username to a session global variable to display on the home page
-    //have a set of seconds before switching to the home page 
 ?>
