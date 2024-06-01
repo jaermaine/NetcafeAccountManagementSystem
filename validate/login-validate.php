@@ -18,9 +18,9 @@
     $details = mysqli_fetch_assoc($query_result);
 
     $username = $user == $details['username'] ? true : false;
-    $password = password_verify($pass, $details["password"]);
+    $password = password_verify($pass, $details['password']);
     
-    if (!$username && $password){
+    if (!$username || !$password){
         $_SESSION['message'] = "Login Failed";
         header("Location: " . $_SERVER['HTTP_REFERER']);
         exit;
