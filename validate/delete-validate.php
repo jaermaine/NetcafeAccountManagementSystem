@@ -12,6 +12,7 @@ if (isset($_GET['user_id']) && $array['username'] != $_SESSION['username']) {
     $delete = "DELETE FROM account WHERE user_id=$user_id";
     $conn->query($delete);
 
+    $_SESSION['registration_message'] = "Account Deleted";
     header("location: ../pages/admin-page.php");
 }
 

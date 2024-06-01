@@ -2,6 +2,7 @@
 session_start();
 
 include 'db.php';
+include 'functions.php';
 
 if (!isset($_POST['submit'])) {
     header("Location: ../index.php");
@@ -21,11 +22,7 @@ if (mysqli_num_rows($cntuser_rslt) > 0) {
 $usercheck_query = "SELECT COUNT(username) AS numrows FROM account WHERE username = '" . $_POST['username'] . "'";
 $usercheck_result = mysqli_query($conn, $usercheck_query);
 $usercheck_row = mysqli_fetch_assoc($usercheck_result);
-if ($usercheck_row['numrows'] == 1) {
-    $_SESSION['registration_message'] = "Username taken";
-    $_SESSION['register'] = 'Create';
-    header("Location: " . $_SESSION['referer']);
-} else {
+if (checkUsername($conn, $_POST['username'])) {
 
     $first_name = $_POST['first_name'];
     $last_name = $_POST['last_name'];

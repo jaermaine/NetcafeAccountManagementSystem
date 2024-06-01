@@ -35,11 +35,11 @@
         <br></div>
 
         <div class = "uname"><br>
-        <input type = "text" id = "Uname" name = "username" placeholder="Username" value="<?php echo $username ?>" readonly><br>
+        <input type = "text" id = "Uname" name = "username" placeholder="Username" value="<?php echo $username ?>" required><br>
         <br></div>
 
         <div class = "pass"><br>
-        <input type = "text" id = "Uname" name = "password" placeholder="Change Password" required><br>
+        <input type = "text" id = "Uname" name = "password" placeholder="Change Password"><br>
         <br></div>
 
         <div class = "role">
