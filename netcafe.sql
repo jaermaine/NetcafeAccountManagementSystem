@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2024 at 04:21 PM
+-- Generation Time: Jun 02, 2024 at 07:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,8 +44,9 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`user_id`, `first_name`, `last_name`, `username`, `password`, `time`, `role_id`, `status_id`) VALUES
 (1, 'Jaermaine', 'Domingcil', 'zero', '$2y$10$sw.AIUGjZX8sQGcgRaZSh.8wWwtNSkukTFekZHqwvC1kJOzZpBg5i', 0, 1, 3),
-(2, 'hash', 'test', 'user', '$2y$10$0i6.TA3Cb6/bGoKJ8PAQQORwlEWwhuRL2U0EPCiUlhlR5MsQxcAnu', 0, 3, 1),
-(3, 'admin', 'admin', 'admin', '$2y$10$hXh1xNyj0k/jX3IzAF81cu9vEAkdgg6kLci7SveI0dQ.OwvRnF3KG', 0, 1, 3);
+(2, 'staff', 'staff', 'staff', '$2y$10$B8/y1Az6FfmKmrRuprK3BeYGzPSAqNGkGVatrgXn826kKJ9pJlLwi', 0, 2, 3),
+(4, 'user1', 'user1', 'user1', '$2y$10$O1LWz1OFt0kS.RZikptX4uf8btX/nWGXu.L5HxR8plsbbXu6XavVC', 0, 3, 2),
+(5, 'lorenzo', 'canales', 'onoda', '$2y$10$bkY/2t9zmExL4utQ2u2wneSL5AMJAl5zTd5GGHURdEcKeXyIcWsra', 0, 3, 1);
 
 -- --------------------------------------------------------
 
@@ -85,7 +86,6 @@ CREATE TABLE `status` (
 INSERT INTO `status` (`status_id`, `status_name`) VALUES
 (1, 'Regular'),
 (2, 'VIP'),
-(3, 'Non-Customer'),
 (3, 'Non-Customer');
 
 -- --------------------------------------------------------
@@ -131,6 +131,16 @@ ALTER TABLE `status`
 ALTER TABLE `transactions`
   ADD PRIMARY KEY (`transaction_id`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `account`
+--
+ALTER TABLE `account`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- Constraints for dumped tables
