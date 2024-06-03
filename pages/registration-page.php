@@ -22,6 +22,7 @@ if (!isset($_SESSION['register'])) {
         <div class="child">
             <form action="..\validate\register-validate.php" method="POST">
                 <div class="Login">
+                <div class="TextFields1">
                     <input type="text" id="Uname" name="first_name" placeholder="First Name" required><br>
                     <br>
 
@@ -30,7 +31,7 @@ if (!isset($_SESSION['register'])) {
 
                     <input type="text" id="Uname" name="username" placeholder="Username"><br>
                     <br>
-
+                </div>
                     <input type="text" id="Uname" name="password" placeholder="Password" required><br>
                     <br>
 
@@ -55,10 +56,6 @@ if (!isset($_SESSION['register'])) {
                     </div>
                     <br>
 
-                    <div class="deposit">
-                        <label for="deposit">Initial hours</label>
-                        <input type="number" name="deposit" min="0" max="20" style="width: 3em;"><br>
-                    </div>
 
                     <input type="submit" class="button" name="submit" value="Confirm">
             </form>

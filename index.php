@@ -15,7 +15,8 @@ session_start();
     <div class="parent">
         <div class="child">
             <div class="Login">
-                <img src="../frontend/profile.png" alt="Profile" class="profile">
+                <div class="LogoImage">
+                <img src="frontend/profile.png" alt="Profile" class="profile"></div>
                 <input type="text" id="Uname" name="username" placeholder="Username" required><br>
 
                 <input type="password" id="Pass" name="password" placeholder="Password" required><br>

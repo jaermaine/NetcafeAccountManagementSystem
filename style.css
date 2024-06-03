@@ -87,6 +87,19 @@ body {
   transition: all 0.3s ease-in-out;
 }
 
+.Login input[type="submit"]{
+  margin-bottom: 40px;
+}
+
+.LogoImage {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.TextFields1{
+  margin-top: 20px;
+}
+
 /* Remove background image for .no-bg class */
 .Login input.no-bg {
   background-image: none;
@@ -282,4 +295,50 @@ body {
 
 .statusaccount__label:hover {
  color: var(--text-hover);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: monospace;
+}
+
+th, td {
+  padding: 12px;
+  text-align: center;
+  height: 50px;
+}
+
+th {
+  background-color: #2C3E50; /* Dark blue-gray */
+  color: #ECF0F1; /* Light text for contrast */
+  height: 70px;
+}
+
+tr:nth-child(even) {
+  background-color: #517394; /* Darker gray-blue */
+  color:#FFFFFF;
+}
+
+tr:nth-child(odd) {
+  background-color: #6b8cae; /* Slightly lighter gray-blue */
+  color: #ECF0F1; /* Light text for contrast */
+}
+
+tr:hover {
+  background-color: #A9BCD0; /* Much lighter shade of gray-blue */
+  color: #2C3E50; /* Darker text for contrast */
+}
+
+h1, h2{
+  font-family: monospace;
+  text-align: left;
+  color: white;
+}
+
+
+table, th, td {
+  color: white;
+  border: 3px solid;
 }

@@ -23,6 +23,7 @@ include '../validate/modify-validate.php';
         <div class="child">
             <form action="..\validate\register-validate.php" method="POST">
                 <div class="Login">
+                    <div class="TextFields1">
                     <input type="text" id="Uname" name="first_name" placeholder="First Name" value="<?php echo $first_name ?>" required><br>
                     <br>
 
@@ -34,6 +35,7 @@ include '../validate/modify-validate.php';
 
                     <input type="text" id="Uname" name="password" placeholder="Change Password"><br>
                     <br>
+                    </div>
 
                     <div class="role-dropdown">
                         <details class="dropdown">
@@ -56,10 +58,6 @@ include '../validate/modify-validate.php';
                     </div>
                     <br>
 
-                    <div class="deposit">
-                        <label for="deposit">Initial hours</label>
-                        <input type="number" name="deposit" min="0" max="20" style="width: 3em;"><br>
-                    </div>
 
                     <input type="submit" class="button" name="submit" value="Confirm">
             </form>
