@@ -28,7 +28,30 @@ include '../validate/db.php';
         if (isset($_SESSION['registration_message'])) echo "<p class='text-center'>" . $_SESSION['registration_message'] . "</p>";
         ?>
 
+<<<<<<< HEAD
         <h2 class="text-center mt-4">List of Users</h2>
+=======
+    <h2> List of Users</h2>
+        <br>
+        <table class="table">
+            <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Role ID</th>
+                <th>Status ID</th>
+                <th>Remaining Time</th>
+                <th>Actions</th>
+            </tr>
+            <?php
+            // read all row from the database table
+            $sql = "SELECT DISTINCT account.user_id AS 'user_id', account.username AS 'Username', account.first_name AS 'FirstName', account.last_name AS 'LastName', roles.role_name AS Role, status.status_name AS Status, account.time AS Time, account.active AS active FROM account 
+            JOIN roles ON account.role_id = roles.role_id 
+            JOIN status ON account.status_id = status.status_id
+            ORDER BY active DESC";
+            $results = $conn->query($sql);
+>>>>>>> eb32f6ef2dd563afb509b2cca3fc4113e17612b5
 
         <table class="tablee">
             <thead class="thead-dark">
@@ -80,6 +103,7 @@ include '../validate/db.php';
             </tbody>
         </table>
 
+<<<<<<< HEAD
         <div class="text-center mt-4">
             <form action="registration-page.php" method="POST">
                 <input type="submit" name="register" class="button" value="<?php echo $_SESSION['register'] = 'Create'; ?>">
@@ -310,6 +334,12 @@ include '../validate/db.php';
             cursor: pointer;
         }
     </style>
+=======
+    <form action = "..\validate\logout-validate.php" method = "POST">
+        <input type ="text" name = "user_id" value = "<?php echo $_SESSION['user_id']; ?>" hidden>
+        <input type = "submit" name = "logout" value = "Logout">
+    </form>
+>>>>>>> eb32f6ef2dd563afb509b2cca3fc4113e17612b5
 </body>
 
 </html>
