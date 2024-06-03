@@ -44,10 +44,10 @@
             </tr>
             <?php
             // read all row from the database table
-            $sql = "SELECT DISTINCT account.user_id AS 'user_id', account.username AS 'Username', account.first_name AS 'FirstName', account.last_name AS 'LastName', roles.role_name AS Role, status.status_name AS Status, account.time AS Time FROM account 
+            $sql = "SELECT DISTINCT account.user_id AS 'user_id', account.username AS 'Username', account.first_name AS 'FirstName', account.last_name AS 'LastName', roles.role_name AS Role, status.status_name AS Status, account.time AS Time, account.active AS active FROM account 
             JOIN roles ON account.role_id = roles.role_id 
             JOIN status ON account.status_id = status.status_id
-            ORDER BY Role ASC";
+            ORDER BY active DESC";
             $results = $conn->query($sql);
 
             if (!$results) {
@@ -77,6 +77,7 @@
         </table>
 
     <form action = "..\validate\logout-validate.php" method = "POST">
+        <input type ="text" name = "user_id" value = "<?php echo $_SESSION['user_id']; ?>" hidden>
         <input type = "submit" name = "logout" value = "Logout">
     </form>
 </body>

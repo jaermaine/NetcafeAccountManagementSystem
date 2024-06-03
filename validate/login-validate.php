@@ -12,7 +12,8 @@
     $user = $_POST["username"];
     $pass = $_POST["password"];
 
-    $query = "SELECT `username`, `password`, `role_id` FROM `account` WHERE `username` = '{$user}'";
+    $query = "SELECT `user_id`, `username`, `password`, `role_id` FROM `account` WHERE `username` = '{$user}'";
+    $active_user = "UPDATE account SET active = 1 WHERE username = '$user'";
     $query_result = mysqli_query($conn, $query);
 
     $details = mysqli_fetch_assoc($query_result);
@@ -26,7 +27,9 @@
         exit;
     } else{
         $_SESSION['username'] = $user;
+        $_SESSION['user_id'] = $details['user_id'];
         $_SESSION['login'] = true;
+        $conn->query($active_user);
  
         switch($details["role_id"]){
         case 1:
