@@ -28,10 +28,8 @@ include '../validate/db.php';
         if (isset($_SESSION['registration_message'])) echo "<p class='text-center'>" . $_SESSION['registration_message'] . "</p>";
         ?>
 
-<<<<<<< HEAD
         <h2 class="text-center mt-4">List of Users</h2>
-=======
-    <h2> List of Users</h2>
+        <h2> List of Users</h2>
         <br>
         <table class="table">
             <tr>
@@ -51,36 +49,14 @@ include '../validate/db.php';
             JOIN status ON account.status_id = status.status_id
             ORDER BY active DESC";
             $results = $conn->query($sql);
->>>>>>> eb32f6ef2dd563afb509b2cca3fc4113e17612b5
+            $results = $conn->query($sql);
 
-        <table class="tablee">
-            <thead class="thead-dark">
-                <tr>
-                    <th>User ID</th>
-                    <th>Username</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Role</th>
-                    <th>Status</th>
-                    <th>Remaining Time</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                $sql = "SELECT DISTINCT account.user_id AS 'user_id', account.username AS 'Username', account.first_name AS 'FirstName', account.last_name AS 'LastName', roles.role_name AS Role, status.status_name AS Status, account.time AS Time 
-                        FROM account 
-                        JOIN roles ON account.role_id = roles.role_id 
-                        JOIN status ON account.status_id = status.status_id
-                        ORDER BY Role ASC";
-                $results = $conn->query($sql);
+            if (!$results) {
+                die("Invalid query: " . $conn->error);
+            }
 
-                if (!$results) {
-                    die("Invalid query: " . $conn->error);
-                }
-
-                while ($row = $results->fetch_assoc()) {
-                    echo " <tr>
+            while ($row = $results->fetch_assoc()) {
+                echo " <tr>
                         <td>$row[user_id]</td>
                         <td>$row[Username]</td>
                         <td>$row[FirstName]</td>
@@ -98,12 +74,11 @@ include '../validate/db.php';
                                 data-status='{$row['Status']}'>Add Time</button>
                         </td>
                     </tr>";
-                }
-                ?>
+            }
+            ?>
             </tbody>
         </table>
 
-<<<<<<< HEAD
         <div class="text-center mt-4">
             <form action="registration-page.php" method="POST">
                 <input type="submit" name="register" class="button" value="<?php echo $_SESSION['register'] = 'Create'; ?>">
@@ -132,7 +107,7 @@ include '../validate/db.php';
                 <br><br>
                 <p>Amount to be paid: ₱<span id="regular-amount">0</span></p>
                 <br>
-                <input type="submit" name="submit-addtime" class ="button" value="Submit">
+                <input type="submit" name="submit-addtime" class="button" value="Submit">
             </form>
         </div>
     </div>
@@ -183,13 +158,13 @@ include '../validate/db.php';
         var employeeSpan = EmployeeModal.getElementsByClassName("close")[0];
 
         // When the user clicks on <span> (x), close the modal
-        RegularSpan.onclick = function () {
+        RegularSpan.onclick = function() {
             RegularModal.style.display = "none";
         }
-        VIPSpan.onclick = function () {
+        VIPSpan.onclick = function() {
             VIPModal.style.display = "none";
         }
-        employeeSpan.onclick = function () {
+        employeeSpan.onclick = function() {
             EmployeeModal.style.display = "none";
         }
 
@@ -197,8 +172,8 @@ include '../validate/db.php';
         var buttons = document.getElementsByClassName("add-time-btn");
 
         // Add event listener to each button
-        Array.from(buttons).forEach(function (button) {
-            button.addEventListener('click', function () {
+        Array.from(buttons).forEach(function(button) {
+            button.addEventListener('click', function() {
                 var userId = this.getAttribute('data-user-id');
                 var username = this.getAttribute('data-username');
                 var role = this.getAttribute('data-role');
@@ -211,7 +186,7 @@ include '../validate/db.php';
                     RegularModal.style.display = "block";
 
                     // Listen for changes in the add_hrs_regular input field
-                    document.getElementById('add_hrs_regular').addEventListener('input', function () {
+                    document.getElementById('add_hrs_regular').addEventListener('input', function() {
                         var reg_hours = this.value;
                         var reg_rate = 50; // 50php/hour
                         var reg_amount = reg_hours * reg_rate;
@@ -225,7 +200,7 @@ include '../validate/db.php';
                     VIPModal.style.display = "block";
 
                     // Listen for changes in the add_hrs_vip input field
-                    document.getElementById('add_hrs_vip').addEventListener('input', function () {
+                    document.getElementById('add_hrs_vip').addEventListener('input', function() {
                         var vip_hours = this.value;
                         var vip_rate = 30; // 30php/hour
                         var vip_amount = vip_hours * vip_rate;
@@ -251,7 +226,6 @@ include '../validate/db.php';
         if ($_POST['status_id'] == "Regular") {
             $time = $_POST['add_hrs_regular'];
             $rate = 50;
-
         } else if ($_POST['status_id'] == "VIP") {
             $time = $_POST['add_hrs_vip'];
             $rate = 30;
@@ -280,7 +254,6 @@ include '../validate/db.php';
         } else {
             echo "Error fetching current hours: " . $conn->error;
         }
-
     }
     ?>
 
@@ -330,16 +303,14 @@ include '../validate/db.php';
         .close:hover,
         .close:focus {
             color: black;
-            text-decoStion: none;
+            text-decoration: none;
             cursor: pointer;
         }
     </style>
-=======
-    <form action = "..\validate\logout-validate.php" method = "POST">
-        <input type ="text" name = "user_id" value = "<?php echo $_SESSION['user_id']; ?>" hidden>
-        <input type = "submit" name = "logout" value = "Logout">
+    <form action="..\validate\logout-validate.php" method="POST">
+        <input type="text" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" hidden>
+        <input type="submit" name="logout" value="Logout">
     </form>
->>>>>>> eb32f6ef2dd563afb509b2cca3fc4113e17612b5
 </body>
 
 </html>
