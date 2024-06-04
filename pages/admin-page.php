@@ -307,10 +307,6 @@ include '../validate/db.php';
             cursor: pointer;
         }
     </style>
-    <form action="..\validate\logout-validate.php" method="POST">
-        <input type="text" name="user_id" value="<?php echo $_SESSION['user_id']; ?>" hidden>
-        <input type="submit" name="logout" value="Logout">
-    </form>
 </body>
 
 </html>
