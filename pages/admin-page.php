@@ -29,9 +29,8 @@ include '../validate/db.php';
         ?>
 
         <h2 class="text-center mt-4">List of Users</h2>
-        <h2> List of Users</h2>
         <br>
-        <table class="table">
+        <table class="tablee">
             <tr>
                 <th>User ID</th>
                 <th>Username</th>
@@ -128,7 +127,7 @@ include '../validate/db.php';
                 <br><br>
                 <p>Amount to be paid: ₱<span id="vip-amount">0</span></p>
                 <br>
-                <input type="submit" name="submit-addtime" value="Submit">
+                <input type="submit" class = "button" name="submit-addtime" value="Submit">
             </form>
         </div>
     </div>
