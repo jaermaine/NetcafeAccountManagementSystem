@@ -327,7 +327,7 @@ tr:nth-child(odd) {
 }
 
 tr:hover {
-  background-color: #A9BCD0; /* Much lighter shade of gray-blue */
+  background-color: #2C3E50; /* Much lighter shade of gray-blue */
   color: #2C3E50; /* Darker text for contrast */
 }
 
