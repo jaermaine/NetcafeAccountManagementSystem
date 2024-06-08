@@ -29,6 +29,7 @@
         $_SESSION['username'] = $user;
         $_SESSION['user_id'] = $details['user_id'];
         $_SESSION['login'] = true;
+        $_SESSION['role'] = $details["role_id"];
         $conn->query($active_user);
  
         switch($details["role_id"]){
