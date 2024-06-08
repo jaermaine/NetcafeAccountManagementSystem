@@ -238,7 +238,7 @@ include '../validate/db.php';
 
         if ($result && $row = $result->fetch_assoc()) {
             $currentHours = $row['time'];
-            $newHours = $currentHours + $time;
+            $newHours = $currentHours + ($time * 3600);
 
             // Update the new hours in the database
             $updateQuery = "UPDATE account SET time = $newHours WHERE user_id = $userId";
