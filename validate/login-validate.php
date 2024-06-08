@@ -4,7 +4,7 @@
     if(!isset($_POST['submit'])){
         session_destroy();
         session_unset();
-        header("Location: ../login.php");   
+        header("Location: ../index.php");   
     }
 
     include 'db.php';
@@ -12,11 +12,17 @@
     $user = $_POST["username"];
     $pass = $_POST["password"];
 
-    $query = "SELECT `user_id`, `username`, `password`, `role_id` FROM `account` WHERE `username` = '{$user}'";
+    $query = "SELECT `user_id`, `username`, `password`, `role_id`, `time` FROM `account` WHERE `username` = '{$user}'";
     $active_user = "UPDATE account SET active = 1 WHERE username = '$user'";
     $query_result = mysqli_query($conn, $query);
 
     $details = mysqli_fetch_assoc($query_result);
+
+    if($details['role_id'] == 3 && $details['time'] <= 0){
+        session_destroy();
+        session_unset();
+        header("Location: ../index.php");   
+    }
 
     $username = $user == $details['username'] ? true : false;
     $password = password_verify($pass, $details['password']);
