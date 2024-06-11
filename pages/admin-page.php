@@ -1,6 +1,5 @@
 <?php
 session_start();
-$_SESSION['referer'] = "../pages/admin-page.php";
 
 if (empty($_SESSION['login'])) {
     header('Location: ../index.php');
@@ -24,12 +23,13 @@ include '../validate/db.php';
 <body>
     <div class="container mt-5">
         <?php
-        echo "<h1 class='text-center'>Welcome Back " . $_SESSION['username'] . "</h1>";
-        if (isset($_SESSION['registration_message'])) echo "<p class='text-center'>" . $_SESSION['registration_message'] . "</p>";
+        echo "<h1 class='text-center'>Welcome Back " . $_SESSION['username'] . "</h1>
+        <h2 class='text-center mt-4'>List of Users</h2>
+        <br>";
+        
+        if (isset($_SESSION['registration_message'])) echo "<h2 class='text-center'>(" . $_SESSION['registration_message'] . ")</h2><br>";
         ?>
 
-        <h2 class="text-center mt-4">List of Users</h2>
-        <br>
         <table class="tablee">
             <tr>
                 <th>User ID</th>
@@ -48,13 +48,13 @@ include '../validate/db.php';
             JOIN status ON account.status_id = status.status_id
             ORDER BY active DESC";
             $results = $conn->query($sql);
-            $results = $conn->query($sql);
 
             if (!$results) {
                 die("Invalid query: " . $conn->error);
             }
 
             while ($row = $results->fetch_assoc()) {
+                $row['Time'] = number_format(($row['Time'] / 3600));
                 echo " <tr>
                         <td>$row[user_id]</td>
                         <td>$row[Username]</td>
@@ -71,6 +71,7 @@ include '../validate/db.php';
                                 data-username='{$row['Username']}' 
                                 data-role='{$row['Role']}' 
                                 data-status='{$row['Status']}'>Add Time</button>
+                            <a class = 'btn btn-primary btn-sm' href='../pages/transaction-logs.php?user_id=$row[user_id]'>Logs</a>
                         </td>
                     </tr>";
             }
@@ -97,7 +98,7 @@ include '../validate/db.php';
             <span class="close">&times;</span>
             <h3 id="modal-title-regular">Add Time</h3>
             <p id="text-regular"></p>
-            <form method="POST">
+            <form action = "../validate/add-time-validate.php" method="POST">
                 <input type="hidden" id="user_id_regular" name="user_id">
                 <input type="hidden" id="status_id_regular" name="status_id" value="Regular">
                 <p>Rate: 50php/hour</p>
@@ -118,7 +119,7 @@ include '../validate/db.php';
             <span class="close">&times;</span>
             <h3 id="modal-title-vip">Add Time</h3>
             <p id="text-vip"></p>
-            <form method="POST">
+            <form action = "../validate/add-time-validate.php" method="POST">
                 <input type="hidden" id="user_id_vip" name="user_id">
                 <input type="hidden" id="status_id_vip" name="status_id" value="VIP">
                 <p>Rate: 30php/hour</p>
@@ -127,7 +128,7 @@ include '../validate/db.php';
                 <br><br>
                 <p>Amount to be paid: ₱<span id="vip-amount">0</span></p>
                 <br>
-                <input type="submit" class = "button" name="submit-addtime" value="Submit">
+                <input type="submit" class="button" name="submit-addtime" value="Submit">
             </form>
         </div>
     </div>
@@ -142,7 +143,11 @@ include '../validate/db.php';
         </div>
     </div>
 
-
+    <?php
+        $time_query = "SELECT * FROM services";
+        $time_query_result = $conn->query($time_query);
+        $time_result = $time_query_result->fetch_all();
+    ?>
 
     <!-- JS -->
     <script>
@@ -179,133 +184,45 @@ include '../validate/db.php';
                 var status = this.getAttribute('data-status');
 
                 // for Regular
-                if (status == "Regular") {
-                    document.getElementById('user_id_regular').value = userId;
-                    document.getElementById('modal-title-regular').innerText = "Add Time: " + username + " | Role: " + role + " | Status: " + status;
-                    RegularModal.style.display = "block";
+                switch (status) {
+                    case "Regular":
+                        document.getElementById('user_id_regular').value = userId;
+                        document.getElementById('modal-title-regular').innerText = "Add Time: " + username + " | Role: " + role + " | Status: " + status;
+                        RegularModal.style.display = "block";
 
-                    // Listen for changes in the add_hrs_regular input field
-                    document.getElementById('add_hrs_regular').addEventListener('input', function() {
-                        var reg_hours = this.value;
-                        var reg_rate = 50; // 50php/hour
-                        var reg_amount = reg_hours * reg_rate;
-                        document.getElementById('regular-amount').innerText = reg_amount;
-                    });
-                }
-                // for VIP
-                else if (status == "VIP") {
-                    document.getElementById('user_id_vip').value = userId;
-                    document.getElementById('modal-title-vip').innerText = "Add Time: " + username + " | Role: " + role + " | Status: " + status;
-                    VIPModal.style.display = "block";
+                        // Listen for changes in the add_hrs_regular input field
+                        document.getElementById('add_hrs_regular').addEventListener('input', function() {
+                            var reg_hours = this.value;
+                            var reg_rate = <?php echo $time_result[0][2];?>; // 50php/hour
+                            var reg_amount = reg_hours * reg_rate;
+                            document.getElementById('regular-amount').innerText = reg_amount;
+                        });
+                        break;
 
-                    // Listen for changes in the add_hrs_vip input field
-                    document.getElementById('add_hrs_vip').addEventListener('input', function() {
-                        var vip_hours = this.value;
-                        var vip_rate = 30; // 30php/hour
-                        var vip_amount = vip_hours * vip_rate;
-                        document.getElementById('vip-amount').innerText = vip_amount;
-                    });
-                }
-                // for employees
-                else if (status == "Non-Customer") {
-                    document.getElementById('modal-title-employee').innerText = "Add Time: " + username + " | Role: " + role + " | Status: " + status;
-                    document.getElementById('text-employee').innerText = "Cannot add time to Employees";
-                    EmployeeModal.style.display = "block";
+                        // for VIP
+                    case "VIP":
+                        document.getElementById('user_id_vip').value = userId;
+                        document.getElementById('modal-title-vip').innerText = "Add Time: " + username + " | Role: " + role + " | Status: " + status;
+                        VIPModal.style.display = "block";
+                        break;
+
+                        // Listen for changes in the add_hrs_vip input field
+                        document.getElementById('add_hrs_vip').addEventListener('input', function() {
+                            var vip_hours = this.value;
+                            var vip_rate = <?php echo $time_result[1][2];?>; // 30php/hour
+                            var vip_amount = vip_hours * vip_rate;
+                            document.getElementById('vip-amount').innerText = vip_amount;
+                        });
+                        // for employees
+                    case "Non-Customer":
+                        document.getElementById('modal-title-employee').innerText = "Add Time: " + username + " | Role: " + role + " | Status: " + status;
+                        document.getElementById('text-employee').innerText = "Cannot add time to Employees";
+                        EmployeeModal.style.display = "block";
+                        break;
                 }
             });
         });
-    </script>
-
-    <!-- Wala pa kong gets sa validate at hindi pupunta sa ibang page pag nag submit sa form so ito muna -->
-    <?php
-    if (isset($_POST['submit-addtime'])) {
-        $userId = $_POST['user_id'];
-        $time = 0;
-
-        if ($_POST['status_id'] == "Regular") {
-            $time = $_POST['add_hrs_regular'];
-            $rate = 50;
-        } else if ($_POST['status_id'] == "VIP") {
-            $time = $_POST['add_hrs_vip'];
-            $rate = 30;
-        }
-
-        $amount = $time * $rate;
-
-        // Fetch current hours
-        $query = "SELECT time FROM account WHERE user_id = $userId";
-        $result = $conn->query($query);
-
-        if ($result && $row = $result->fetch_assoc()) {
-            $currentHours = $row['time'];
-            $newHours = $currentHours + ($time * 3600);
-
-            // Update the new hours in the database
-            $updateQuery = "UPDATE account SET time = $newHours WHERE user_id = $userId";
-            if ($conn->query($updateQuery) === TRUE) {
-                echo "<script language = 'JavaScript'>
-                    alert('Successfully Added Time');
-                    window.location = \"../pages/admin-page.php\";
-                    </script>";
-            } else {
-                echo "Error updating hours: " . $conn->error;
-            }
-        } else {
-            echo "Error fetching current hours: " . $conn->error;
-        }
-    }
-    ?>
-
-    <!-- CSS -->
-    <style>
-        /* The Modal (background) */
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content/Box */
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            /* 15% from the top and centered */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 40%;
-            /* Could be more or less, depending on screen size */
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-    </style>
+    </script>    
 </body>
 
 </html>
