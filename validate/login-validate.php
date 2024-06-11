@@ -19,8 +19,7 @@
     $details = mysqli_fetch_assoc($query_result);
 
     if($details['role_id'] == 3 && $details['time'] <= 0){
-        session_destroy();
-        session_unset();
+        $_SESSION['message'] = "No Time";
         header("Location: ../index.php");   
     }
 
