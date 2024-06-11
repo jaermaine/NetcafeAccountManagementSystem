@@ -27,7 +27,7 @@ include '../validate/db.php';
         <h2 class='text-center mt-4'>List of Users</h2>
         <br>";
         
-        if (isset($_SESSION['registration_message'])) echo "<h2 class='text-center'>(" . $_SESSION['registration_message'] . ")</h2><br>";
+        if (isset($_SESSION['registration_message'])) echo "<h4 class='text-center'>(" . $_SESSION['registration_message'] . ")</h4><br>";
         ?>
 
         <table class="tablee">
