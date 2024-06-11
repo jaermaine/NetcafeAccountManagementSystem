@@ -1,10 +1,8 @@
 :root {
-  --accent: #007ECC;
-  --accent-2: #EC2F4B;
-  --text: #003f66;
-  --text-hover: var(--accent);
-  --text-active: #FFFFFF;
-  --border-width: 0.125em;
+  --s: 200px; /* Control the size */
+  --c1: #1d1d1d;
+  --c2: #4e4f51;
+  --c3: #3c3c3c;
 }
 
 body {
@@ -14,20 +12,37 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #101c24;
+  background: repeating-conic-gradient(
+        from 30deg,
+        #0000 0 120deg,
+        var(--c3) 0 180deg
+      )
+      calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577),
+    repeating-conic-gradient(
+      from 30deg,
+      var(--c1) 0 60deg,
+      var(--c2) 0 120deg,
+      var(--c3) 0 180deg
+    );
+  background-size: var(--s) calc(var(--s) * 0.577);
+  overflow: hidden;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  --s: 200px; /* control the size */
 }
 
 .parent {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
   border-radius: 20px;
-  border: 1.5px solid rgba(255, 255, 255, 0.18);
-  box-shadow: 0 8px 80px 0 rgba(0, 0, 0, 0.37);
-  width: 600px;
+  box-shadow: 0 80px 800px 0 rgba(0, 0, 0, 0.37);
+  background-color: #333333;
+  border: 2px solid white; /* Set border color to white */
+  width: 700px;
 }
 
 .child {
@@ -77,13 +92,13 @@ body {
   height: 80px;
   font-size: 30px;
   box-sizing: border-box;
-  border: 5px solid #ccc;
+  border: 3px solid #ccc;
   border-radius: 10px;
   background-repeat: no-repeat;
   padding-bottom: 2px;
   color: #fff;
-  background-color: #181c24;
-  border-color: #555;
+  background-color: #262626;
+  border-color: #a6a6a6;
   transition: all 0.3s ease-in-out;
 }
 
@@ -119,7 +134,7 @@ body {
   border-width: 0;
   box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   box-sizing: border-box;
-  color: #36395A;
+  color: #404040;
   cursor: pointer;
   display: inline-flex;
   font-family: "JetBrains Mono", monospace;
@@ -143,11 +158,13 @@ body {
   margin-top: 30px;
 }
 
+::placeholder {
+  color: #a6a6a6;
+}
+
 .button:focus {
   box-shadow: #FF7A18 0 0 0 2px, rgba(0, 0, 0, 0.15) 0 2px 4px;
 }
-
-
 
 .button:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
@@ -322,7 +339,7 @@ tr:nth-child(even) {
 }
 
 tr:nth-child(odd) {
-  background-color: #6b8cae; /* Slightly lighter gray-blue */
+  background-color: #2aa7d5; /* Slightly lighter gray-blue */
   color: #ECF0F1; /* Light text for contrast */
 }
 
@@ -331,16 +348,38 @@ tr:hover {
   color: #2C3E50; /* Darker text for contrast */
 }
 
-h1, h2{
+h1, h2, h4{
   font-family: monospace;
   text-align: left;
   color: white;
+}
+
+.table-container {
+  margin: 20px auto; /* Center the container horizontally */
+  width: 80%; /* Set a fixed width for the container */
+  max-width: 1200px; /* Set a maximum width if needed */
+  position: fixed; /* Fixed positioning */
+  top: 50%; /* Position the container vertically */
+  left: 50%; /* Position the container horizontally */
+  transform: translate(-50%, -50%); /* Center the container */
+  z-index: 1; /* Ensure it stays above other content */
+  overflow: auto; /* Add scrollbar if content overflows */
 }
 
 
 table, th, td {
   color: white;
   border: 3px solid;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(5px); /* Apply blur effect to the background */
 }
 
 /* The Modal (background) */
