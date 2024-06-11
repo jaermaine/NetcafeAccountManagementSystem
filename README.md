@@ -1,6 +1,7 @@
 # Netcafe Account Management System
 
-> This is a database system that is incorporated into internet cafes to store accounts, and add hours to those accounts.
+> This is a database system for internet cafes to store accounts, and add hours to those accounts.
+> It can be access remotely, through the web without needing to go into the internet cafe.
 
 ___
 ## Project Assumptions
