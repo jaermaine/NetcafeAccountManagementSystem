@@ -1,6 +1,7 @@
 <?php
+session_start();
 
-if (!isset($_GET['user_id'])) {
+if (!isset($_SESSION['login'])) {
     header("Location: ../index.php");
 }
 
@@ -21,39 +22,31 @@ include '../validate/modify-validate.php';
 
     <div class="parent">
         <div class="child">
-            <form action="..\validate\register-validate.php" method="POST">
+            <form action="..\validate\modify-validate.php" method="POST">
                 <div class="Login">
                     <div class="TextFields1">
-                    <input type="text" id="Uname" name="first_name" placeholder="First Name" value="<?php echo $first_name ?>" required><br>
-                    <br>
+                        <input type="text" id="Uname" name="user_id" value=<?php echo $user_id; ?> hidden>
+                        <input type="text" id="Uname" name="status_id" value=<?php echo $status; ?> hidden>
 
-                    <input type="text" id="Uname" name="last_name" placeholder="Last Name" value="<?php echo $last_name ?>" required><br>
-                    <br>
+                        <input type="text" id="Uname" name="first_name" value="<?php echo $first_name ?>" required><br>
+                        <br>
 
-                    <input type="text" id="Uname" name="username" placeholder="Username" value="<?php echo $username ?>" required><br>
-                    <br>
+                        <input type="text" id="Uname" name="last_name" value="<?php echo $last_name ?>" required><br>
+                        <br>
 
-                    <input type="text" id="Uname" name="password" placeholder="Change Password"><br>
-                    <br>
+                        <input type="text" id="Uname" name="username" placeholder="<?php echo $username ?>" value = ""><br>
+                        <br>
+
+                        <input type="text" id="Uname" name="default_username" value="<?php echo $username ?>" hidden>
+                        <br>
                     </div>
 
-                    <div class="role-dropdown">
-                        <details class="dropdown">
-                            <summary role="button" aria-haspopup="true">Choose A Role</summary>
-                            <ul>
-                                <li><label><input type="radio" name="role" <?php if ($role != '1') : ?> disabled<?php endif; ?> value="1">Admin</label></li>
-                                <li><label><input type="radio" name="role" <?php if ($role != '2') : ?> disabled<?php endif; ?> value="2">Staff</label></li>
-                                <li><label><input type="radio" name="role" <?php if ($role != '3') : ?> disabled<?php endif; ?> value="3" checked>User</label></li>
-                            </ul>
-                        </details>
-                    </div><br>
-
                     <div class="statusaccount">
-                        <input name="status" type="radio" id="normal" class="statusaccount__input" <?php if ($status != '1') : ?> disabled<?php endif; ?> value="1">
+                        <input name="status" type="radio" id="normal" class="statusaccount__input" value="1">
                         <label for="normal" class="statusaccount__label">Normal</label>
-                        <input name="status" type="radio" id="vip" class="statusaccount__input" <?php if ($status != '2') : ?> disabled<?php endif; ?> value="2">
+                        <input name="status" type="radio" id="vip" class="statusaccount__input" value="2">
                         <label for="vip" class="statusaccount__label">VIP</label>
-                        <input name="status" type="radio" id="non-customer" class="statusaccount__input" <?php if ($status != '3') : ?> disabled<?php endif; ?> value="3">
+                        <input name="status" type="radio" id="non-customer" class="statusaccount__input"  <?php if ($status != '3') : ?> disabled checked<?php endif; ?> value="3">
                         <label for="non-customer" class="statusaccount__label">Non-Customer</label>
                     </div>
                     <br>
@@ -62,7 +55,12 @@ include '../validate/modify-validate.php';
                     <input type="submit" class="button" name="submit" value="Confirm">
             </form>
 
-            <form action="<?php echo $_SESSION['referer']; ?>" method="POST">
+            <form action="../pages/modify-password.php" method="POST">
+                <input type="text" id="Uname" name="user_id" value=<?php echo $user_id; ?> hidden>
+                <input type="submit" class="button" name="Change" value="Change Password">
+            </form>
+
+            <form action="../pages/admin-page.php" method="POST">
                 <input type="submit" class="button" name="back" value="Back">
             </form>
         </div>
