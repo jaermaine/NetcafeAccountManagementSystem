@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 08, 2024 at 08:23 AM
+-- Generation Time: Jun 10, 2024 at 09:45 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -45,11 +45,8 @@ CREATE TABLE `account` (
 
 INSERT INTO `account` (`user_id`, `first_name`, `last_name`, `username`, `password`, `time`, `role_id`, `status_id`, `active`) VALUES
 (1, 'Jaermaine', 'Domingcil', 'zero', '$2y$10$sw.AIUGjZX8sQGcgRaZSh.8wWwtNSkukTFekZHqwvC1kJOzZpBg5i', 0, 1, 3, 1),
-(2, 'staff', 'staff', 'staff', '$2y$10$B8/y1Az6FfmKmrRuprK3BeYGzPSAqNGkGVatrgXn826kKJ9pJlLwi', 0, 2, 3, 0),
-(8, 'romuel', 'borja', 'romuel', '$2y$10$qt0bcMEIwTBT3gD/TDJQ8OpZgd4Gldq78eMdHLVIvadNXSiKXBQDm', 3600, 3, 1, 0),
-(9, 'admin', 'admin', 'admin', '$2y$10$tbwbb00ZA0aEndFGr30YT.EkJpiart12./1tsUoXi6rSGTtV4U7uy', 0, 1, 3, 0),
-(14, 'lorenzo', 'canales', 'onoda', '$2y$10$piMtCxM1NmXgm2VTAxNiP.K3wZ37vJ1y6dthma0ffbqGwXS6wE936', 7177, 3, 1, 0),
-(16, 'test', 'test', 'test', '$2y$10$KxmjfIz3Qj0lLqwgqAPCxuWrAB2jN1zLfJhzGiqOPZBvP60oXSI4u', 3596, 3, 1, 0);
+(26, 'john', 'test', 'test', '$2y$10$QC9641mFhD/yeoxnio1uT.v3a1j0d3FP0ObKDGY594NefrF.nIEhC', 36000, 3, 1, 0),
+(28, 'Mark', 'Salazar', 'mj', '$2y$10$uC/WzjN/TYL7YHNWG1a1U.M4HD4ENFQHK2vHSob7Li9c/2rjbuRC2', 89743, 3, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -106,8 +103,17 @@ INSERT INTO `roles` (`role_id`, `role_name`) VALUES
 
 CREATE TABLE `services` (
   `services_id` int(11) NOT NULL,
-  `service_name` int(11) NOT NULL
+  `service_name` varchar(255) NOT NULL,
+  `service_rate` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`services_id`, `service_name`, `service_rate`) VALUES
+(1, 'Regular', 50),
+(2, 'VIP', 30);
 
 -- --------------------------------------------------------
 
@@ -140,8 +146,18 @@ CREATE TABLE `transactions` (
   `user_id` int(11) NOT NULL,
   `services_id` int(11) NOT NULL,
   `amount` int(11) NOT NULL,
+  `hours_added` int(11) NOT NULL,
   `date` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `transactions`
+--
+
+INSERT INTO `transactions` (`transaction_id`, `user_id`, `services_id`, `amount`, `hours_added`, `date`) VALUES
+(11, 26, 1, 500, 10, 'Monday, 10-Jun-2024 07:19:02 CEST'),
+(13, 28, 2, 720, 24, 'Monday, 10-Jun-2024 07:20:55 CEST'),
+(14, 28, 2, 30, 1, 'Monday, 10-Jun-2024 09:13:10 CEST');
 
 --
 -- Indexes for dumped tables
@@ -204,7 +220,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT for table `foods`
@@ -222,7 +238,13 @@ ALTER TABLE `food_transactions`
 -- AUTO_INCREMENT for table `services`
 --
 ALTER TABLE `services`
-  MODIFY `services_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `services_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `transactions`
+--
+ALTER TABLE `transactions`
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- Constraints for dumped tables
@@ -246,8 +268,8 @@ ALTER TABLE `food_transactions`
 -- Constraints for table `transactions`
 --
 ALTER TABLE `transactions`
-  ADD CONSTRAINT `transactions_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `account` (`user_id`),
-  ADD CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`services_id`) REFERENCES `services` (`services_id`);
+  ADD CONSTRAINT `transactions_ibfk_2` FOREIGN KEY (`services_id`) REFERENCES `services` (`services_id`),
+  ADD CONSTRAINT `transactions_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `account` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
