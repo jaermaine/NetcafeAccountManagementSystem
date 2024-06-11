@@ -22,17 +22,17 @@ if (!isset($_SESSION['register'])) {
         <div class="child">
             <form action="..\validate\register-validate.php" method="POST">
                 <div class="Login">
-                <div class="TextFields1">
-                    <input type="text" id="Uname" name="first_name" placeholder="First Name" required><br>
-                    <br>
+                    <div class="TextFields1">
+                        <input type="text" id="Uname" name="first_name" placeholder="First Name" required><br>
+                        <br>
 
-                    <input type="text" id="Uname" name="last_name" placeholder="Last Name" required><br>
-                    <br>
+                        <input type="text" id="Uname" name="last_name" placeholder="Last Name" required><br>
+                        <br>
 
-                    <input type="text" id="Uname" name="username" placeholder="Username"><br>
-                    <br>
-                </div>
-                    <input type="text" id="Uname" name="password" placeholder="Password" required><br>
+                        <input type="text" id="Uname" name="username" placeholder="Username"><br>
+                        <br>
+                    </div>
+                    <input type="password" id="Uname" name="password" placeholder="Password" required><br>
                     <br>
 
                     <div class="role-dropdown">
@@ -60,7 +60,7 @@ if (!isset($_SESSION['register'])) {
                     <input type="submit" class="button" name="submit" value="Confirm">
             </form>
 
-            <form action="<?php echo $_SESSION['referer']; ?>" method="POST">
+            <form action="../pages/admin-page.php" method="POST">
                 <input type="submit" class="button" name="back" value="Back">
             </form>
         </div>
