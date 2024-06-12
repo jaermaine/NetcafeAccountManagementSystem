@@ -7,6 +7,12 @@ if (empty($_SESSION['login'])) {
 }
 
 include '../validate/db.php';
+include '../validate/functions.php';
+
+$time_result = retrieveServices($conn);
+
+$regular = $time_result[0][2];
+$vip = $time_result[1][2];
 ?>
 
 <!DOCTYPE html>
@@ -26,7 +32,7 @@ include '../validate/db.php';
         echo "<h1 class='text-center'>Welcome Back " . $_SESSION['username'] . "</h1>
         <h2 class='text-center mt-4'>List of Users</h2>
         <br>";
-        
+
         if (isset($_SESSION['registration_message'])) echo "<h4 class='text-center'>(" . $_SESSION['registration_message'] . ")</h4><br>";
         ?>
 
@@ -84,6 +90,10 @@ include '../validate/db.php';
                 <input type="submit" name="register" class="button" value="<?php echo $_SESSION['register'] = 'Create'; ?>">
             </form>
 
+            <form action="services-page.php" method="POST">
+                <input type="submit" name="edit" class="button" value="Edit Services">
+            </form>
+
             <form action="..\validate\logout-validate.php" method="POST">
                 <input type="submit" name="logout" class="button" value="Logout">
             </form>
@@ -98,10 +108,10 @@ include '../validate/db.php';
             <span class="close">&times;</span>
             <h3 id="modal-title-regular">Add Time</h3>
             <p id="text-regular"></p>
-            <form action = "../validate/add-time-validate.php" method="POST">
+            <form action="../validate/add-time-validate.php" method="POST">
                 <input type="hidden" id="user_id_regular" name="user_id">
                 <input type="hidden" id="status_id_regular" name="status_id" value="Regular">
-                <p>Rate: 50php/hour</p>
+                <p>Rate: <?php echo $regular;?>php/hour</p>
                 <label for="add_hrs_regular">Enter additional hours:</label>
                 <input type="number" id="add_hrs_regular" name="add_hrs_regular" min="0" required>
                 <br><br>
@@ -119,10 +129,10 @@ include '../validate/db.php';
             <span class="close">&times;</span>
             <h3 id="modal-title-vip">Add Time</h3>
             <p id="text-vip"></p>
-            <form action = "../validate/add-time-validate.php" method="POST">
+            <form action="../validate/add-time-validate.php" method="POST">
                 <input type="hidden" id="user_id_vip" name="user_id">
                 <input type="hidden" id="status_id_vip" name="status_id" value="VIP">
-                <p>Rate: 30php/hour</p>
+                <p>Rate: <?php echo $vip;?>php/hour</p>
                 <label for="add_hrs_vip">Enter additional hours:</label>
                 <input type="number" id="add_hrs_vip" name="add_hrs_vip" min="0" required>
                 <br><br>
@@ -141,13 +151,7 @@ include '../validate/db.php';
             <h3 id="modal-title-employee"> </h3>
             <p id="text-employee"></p>
         </div>
-    </div>
-
-    <?php
-        $time_query = "SELECT * FROM services";
-        $time_query_result = $conn->query($time_query);
-        $time_result = $time_query_result->fetch_all();
-    ?>
+    </div>\
 
     <!-- JS -->
     <script>
@@ -193,7 +197,7 @@ include '../validate/db.php';
                         // Listen for changes in the add_hrs_regular input field
                         document.getElementById('add_hrs_regular').addEventListener('input', function() {
                             var reg_hours = this.value;
-                            var reg_rate = <?php echo $time_result[0][2];?>; // 50php/hour
+                            var reg_rate = <?php echo $regular; ?>; // 50php/hour
                             var reg_amount = reg_hours * reg_rate;
                             document.getElementById('regular-amount').innerText = reg_amount;
                         });
@@ -208,7 +212,7 @@ include '../validate/db.php';
                         // Listen for changes in the add_hrs_vip input field
                         document.getElementById('add_hrs_vip').addEventListener('input', function() {
                             var vip_hours = this.value;
-                            var vip_rate = <?php echo $time_result[1][2];?>; // 30php/hour
+                            var vip_rate = <?php echo $vip; ?>; // 30php/hour
                             var vip_amount = vip_hours * vip_rate;
                             document.getElementById('vip-amount').innerText = vip_amount;
                         });
@@ -222,7 +226,7 @@ include '../validate/db.php';
                 }
             });
         });
-    </script>    
+    </script>
 </body>
 
 </html>
