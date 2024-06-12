@@ -33,29 +33,33 @@ if (!isset($_SESSION['register'])) {
                         <br>
                     </div>
                     <input type="password" id="Uname" name="password" placeholder="Password" required><br>
-                    <br>
-
-                    <div class="role-dropdown">
-                        <details class="dropdown">
-                            <summary role="button" aria-haspopup="true">Choose A Role</summary>
-                            <ul>
-                                <li><label><input type="radio" name="role" value="1">Admin</label></li>
-                                <li><label><input type="radio" name="role" value="2">Staff</label></li>
-                                <li><label><input type="radio" name="role" value="3" checked>User</label></li>
-                            </ul>
-                        </details>
-                    </div><br>
-
-                    <div class="statusaccount">
-                        <input name="status" type="radio" id="normal" class="statusaccount__input" value="1" checked>
-                        <label for="normal" class="statusaccount__label">Normal</label>
-                        <input name="status" type="radio" id="vip" class="statusaccount__input" value="2">
-                        <label for="vip" class="statusaccount__label">VIP</label>
-                        <input name="status" type="radio" id="non-customer" class="statusaccount__input" value="3">
-                        <label for="non-customer" class="statusaccount__label">Non-Customer</label>
+                    <div class="dropdown">
+                        <div class="select" onclick="toggleDropdown()">
+                            <span class="selected">Choose a Role</span>
+                            <div class="caret"></div>
+                        </div>
+                        <ul class="menu">
+                            <li><label><input type="radio" name="role" value="1" onclick="selectRole('Admin')">Admin</label></li>
+                            <li><label><input type="radio" name="role" value="2" onclick="selectRole('Staff')">Staff</label></li>
+                            <li><label><input type="radio" name="role" value="3" onclick="selectRole('User')" checked>User</label></li>
+                        </ul>
                     </div>
-                    <br>
 
+                    <div class="statsAcc">
+                        <div class="tabs">
+
+                            <input type="radio" id="normal" name="status" class="statusaccount__input" value="1" checked>
+                            <label class="statusaccount__label" for="normal">Normal</label>
+
+                            <input type="radio" id="vip" name="status" class="statusaccount__input" value="2">
+                            <label class="statusaccount__label" for="vip">VIP</label>
+
+                            <input type="radio" id="non-customer" name="status" class="statusaccount__input" value="3">
+                            <label class="statusaccount__label" for="non-customer">Non-Customer</label>
+
+                            <span class="glider"></span>
+                        </div>
+                    </div>
 
                     <input type="submit" class="button" name="submit" value="Confirm">
             </form>
@@ -67,7 +71,22 @@ if (!isset($_SESSION['register'])) {
 
 
     </div>
+    <script>
+        function toggleDropdown() {
+            var dropdownMenu = document.querySelector('.dropdown .menu');
+            dropdownMenu.classList.toggle('menu-open');
 
+            var caret = document.querySelector('.dropdown .caret');
+            caret.classList.toggle('caret-rotate');
+        }
+
+        function selectRole(role) {
+            var selectedText = document.querySelector('.dropdown .selected');
+            selectedText.textContent = role;
+
+            toggleDropdown(); // Close the dropdown after selecting an option
+        }
+    </script>
 </body>
 
 </html>

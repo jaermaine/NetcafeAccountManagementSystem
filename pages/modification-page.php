@@ -41,15 +41,21 @@ include '../validate/modify-validate.php';
                         <br>
                     </div>
 
-                    <div class="statusaccount">
-                        <input name="status" type="radio" id="normal" class="statusaccount__input" value="1">
-                        <label for="normal" class="statusaccount__label">Normal</label>
-                        <input name="status" type="radio" id="vip" class="statusaccount__input" value="2">
-                        <label for="vip" class="statusaccount__label">VIP</label>
-                        <input name="status" type="radio" id="non-customer" class="statusaccount__input"  <?php if ($status != '3') : ?> disabled checked<?php endif; ?> value="3">
-                        <label for="non-customer" class="statusaccount__label">Non-Customer</label>
+                    <div class="statsAcc">
+                        <div class="tabs">
+
+                            <input type="radio" id="normal" name="status" class="statusaccount__input" value="1" checked>
+                            <label class="statusaccount__label" for="normal">Normal</label>
+
+                            <input type="radio" id="vip" name="status" class="statusaccount__input" value="2">
+                            <label class="statusaccount__label" for="vip">VIP</label>
+
+                            <input type="radio" id="non-customer" name="status" class="statusaccount__input" value="3">
+                            <label class="statusaccount__label" for="non-customer">Non-Customer</label>
+
+                            <span class="glider"></span>
+                        </div>
                     </div>
-                    <br>
 
 
                     <input type="submit" class="button" name="submit" value="Confirm">

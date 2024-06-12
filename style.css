@@ -103,7 +103,7 @@ body {
 }
 
 .Login input[type="submit"]{
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .LogoImage {
@@ -176,144 +176,6 @@ body {
   transform: translateY(0);
 }
 
-.role-dropdown {
-   margin-top: 25px;
-   text-align: center;
-}
-
-.role-dropdown .dropdown {
-   position: relative;
-   display: inline-block;
-}
-
-.role-dropdown .dropdown summary {
-   cursor: pointer;
-   -webkit-user-select: none;
-   user-select:none;
-   background-color: #181c24; /* Set background color */
-   color: white; /* Set text color */
-   padding: 0.5em; /* Add padding for better appearance */
-   border-radius: 6px; /* Add border radius for rounded corners */
-}
-
-.role-dropdown .dropdown summary:focus {
-   outline: none;
-}
-
-.role-dropdown .dropdown ul {
-   position: absolute;
-   margin-top: 0.5em;
-   padding: 0.5em;
-   width: 160px; /* Adjust as needed */
-   left: 50%;
-   transform: translateX(-50%);
-   background: #003f66;
-   border-radius: 6px;
-   list-style: none;
-   z-index: 1;
-   display: none;
-}
-
-.role-dropdown .dropdown ul li {
-   padding: 0.5em 0;
-}
-
-.role-dropdown .dropdown ul li label {
-   cursor: pointer;
-}
-
-/* Show dropdown when summary is clicked */
-.role-dropdown .dropdown[open] ul {
-   display: block;
-}
-
-/* Dropdown triangle */
-.role-dropdown .dropdown ul::before {
-   content: '';
-   position: absolute;
-   top: -10px;
-   left: 50%;
-   margin-left: -10px;
-   border-style: solid;
-   border-width: 0 10px 10px 10px;
-   border-color: transparent transparent white transparent;
-}
-
-/* Styling for radio buttons*/
-.role-dropdown .dropdown ul li input[type="radio"] {
-   display: none;
-}
-
-.role-dropdown .dropdown ul li label {
-   display: block;
-   padding: 0.5em;
-}
-
-.role-dropdown .dropdown ul li label:hover {
-   border-radius: 10px;
-   background-color: #005e99;
-   color: #002f4d;
-}
-
-.statusaccount {
- position: relative;
- border-radius: 999em;
- overflow: hidden;
- height: 2.75em;
- width: 500px; /* Adjusted width */
- display: flex;
- flex-direction: row-reverse;
-}
-
-.statusaccount > * {
- flex: 1;
-}
-
-.statusaccount:after {
- content: "";
- position: absolute;
- top: 0;
- right: 0;
- bottom: 0;
- left: 0;
- border: var(--border-width) solid var(--accent);
- border-radius: 999em;
- pointer-events: none;
-}
-
-.statusaccount__input {
- display: none;
-}
-
-.statusaccount__input:checked + .statusaccount__label {
- background-color: var(--accent);
- color: var(--text-active);
-}
-
-.statusaccount__input:nth-of-type(1) + label { order: 2; }
-.statusaccount__input:nth-of-type(2) + label { order: 1; }
-
-.statusaccount__label {
- display: flex;
- font-size: 25px;
- align-items: center;
- justify-content: center;
- position: relative;
- cursor: pointer;
- transition: all 0.2s ease-out;
- color: var(--text);
- padding: 1 1em;
- border-left: var(--border-width) solid var(--accent);
-}
-
-.statusaccount__label:first-of-type {
- border-left: none;
-}
-
-.statusaccount__label:hover {
- color: var(--text-hover);
-}
-
 table {
   width: 100%;
   border-collapse: collapse;
@@ -369,7 +231,7 @@ h1, h2, h4{
 
 table, th, td {
   color: white;
-  border: 3px solid;
+  border: 2px solid;
 }
 
 body {
@@ -429,3 +291,210 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
+
+.dropdown{
+  position: relative;
+  z-index: 50; /* Set a lower z-index than the menu but higher than default */
+  margin: 2em;
+  min-width: 15em;
+}
+
+.dropdown * {
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.dropdown input[type="radio"] {
+  display: none; /* Hide the radio buttons */
+}
+
+.dropdown .menu {
+  border-color: white;
+  text-align: center;
+  list-style: none;
+  padding: 0em 0.5em;
+  background: #292929;
+  border-radius: 0.5em;
+  color: #fff;
+  position: absolute; /* Make sure it's positioned absolutely */
+  top: 3em;
+  left: 0;
+  width: 100%;
+  max-height: 175px; /* Set a maximum height to ensure proper overflow handling */
+  transition: 300ms cubic-bezier(0.77,0,0.18,1);
+  z-index: 1000; /* Ensure it stays on top */
+  overflow-y: auto; /* Allow vertical scrolling */
+}
+
+.select {
+  background: #1c1c1c;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px #3f3f3f solid;
+  border-radius: 0.5em;
+  padding: 1em;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.select-clicked {
+  border: 1px #269a3d solid;
+  box-shadow: 0 0 0.8em #269a26;
+}
+
+.select:hover {
+  background: #373737;
+}
+
+.caret{
+  width: 0;
+  height: 0;
+  border-bottom: 5px solid transparent;
+  border-top: 5px solid transparent;
+  border-left: 6px solid #fff;
+}
+
+.caret-rotate{
+  transform: rotate(90deg);
+}
+
+.menu {
+  text-align: center;
+  list-style: none;
+  padding: 0em 0.5em;
+  background: #292929;
+  border-radius: 0.5em;
+  color: #fff;
+  position: absolute;
+  top: 3em;
+  left: 0;
+  width: 100%;
+  height: 0;
+  transition: 300ms cubic-bezier(0.77,0,0.18,1);;
+  z-index: 1;
+  overflow-y: scroll;
+}
+
+.menu::-webkit-scrollbar{
+  width: 8px;
+}
+
+menu::-webkit-scrollbar-track{
+  background: #404040;
+}
+
+.menu::-webkit-scrollbar-thumb{
+  background: #727272;
+}
+
+.menu::-webkit-scrollar-thumb:hover{
+  background: #9e9e9e;
+}
+
+.menu li{
+  padding: 0.7em;
+  margin: 0.3em 0;
+  border-radius: 0.5em;
+  cursor: pointer;
+}
+
+.menu li:hover{
+  background: #404040;
+}
+
+.active {
+  background: #1e1e1e;
+}
+
+.text-fade-in{
+  animation: textFade 300ms ease-in-out;
+}
+
+.menu-open{
+  border: 1px #383838 solid;
+  height: auto; /* Adjust height when opened */
+}
+
+@keyframes textFade{
+  0%{
+    transform: translateX(-1em);
+    opacity: 0;
+  }
+  100%{
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.tabs {
+  display: flex;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 1px 0 rgba(24, 94, 224, 0.15), 0 6px 12px 0 rgba(24, 94, 224, 0.15);
+  padding: 0.25rem;
+  border-radius: 99px;
+}
+
+.tabs * {
+  z-index: 2;
+}
+
+.statsAcc {
+  position: relative;
+  z-index: 10;
+  height: auto;
+}
+
+.statsAcc input[type="radio"] {
+  display: none;
+}
+
+.statusaccount__label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+  width: 125px;
+  font-size: 1.03rem;
+  color: black;
+  font-weight: 500;
+  border-radius: 99px;
+  cursor: pointer;
+  transition: color 0.15s ease-in;
+}
+
+.statsAcc input[type="radio"]:checked + label {
+  color: #f2f2f2;
+}
+
+.statsAcc input[id="normal"]:checked ~ .glider {
+  transform: translateX(0);
+}
+
+.statsAcc input[id="vip"]:checked ~ .glider {
+  transform: translateX(100%);
+}
+
+.statsAcc input[id="non-customer"]:checked ~ .glider {
+  transform: translateX(200%);
+}
+
+.glider {
+  position: absolute;
+  display: flex;
+  height: 60px;
+  width: 124px;
+  background-color: #999999;
+  z-index: 1;
+  border-radius: 99px;
+  transition: 0.25s ease-out;
+}
+
+@media (max-width: 700px) {
+  .tabs {
+      transform: scale(0.6);
+  }
+}
+
