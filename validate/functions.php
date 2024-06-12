@@ -11,7 +11,15 @@ function checkUsernameValidity($conn, $username)
     $usercount_row = $usercount_result->fetch_column(0);
     if ($usercount_row != null) {
         return false;
-    }else{
+    } else {
         return true;
     }
+}
+
+function retrieveServices($conn){
+    $services_query = "SELECT * FROM services";
+    $services_result = $conn->query($services_query);
+    $services_rows = $services_result->fetch_all();
+
+    return $services_rows;
 }
