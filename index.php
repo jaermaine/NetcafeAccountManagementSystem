@@ -21,9 +21,9 @@ session_start();
                     <div class="LogoImage">
                         <img src="frontend/profile.png" alt="Profile" class="profile">
                     </div>
-                    <input type="text" id="Uname" name="username" placeholder="Username" required><br>
+                    <input type="text" id="Uname" name="username" placeholder="Username" autocomplete="off" required><br>
 
-                    <input type="password" id="Pass" name="password" placeholder="Password" required><br>
+                    <input type="password" id="Pass" name="password" placeholder="Password" autocomplete="off" required><br>
                     <?php
                     if (!empty($_SESSION['message'])) {
                         echo $_SESSION['message'];
