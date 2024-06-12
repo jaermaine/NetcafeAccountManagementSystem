@@ -204,7 +204,6 @@ include '../validate/db.php';
                         document.getElementById('user_id_vip').value = userId;
                         document.getElementById('modal-title-vip').innerText = "Add Time: " + username + " | Role: " + role + " | Status: " + status;
                         VIPModal.style.display = "block";
-                        break;
 
                         // Listen for changes in the add_hrs_vip input field
                         document.getElementById('add_hrs_vip').addEventListener('input', function() {
@@ -213,6 +212,7 @@ include '../validate/db.php';
                             var vip_amount = vip_hours * vip_rate;
                             document.getElementById('vip-amount').innerText = vip_amount;
                         });
+                        break;
                         // for employees
                     case "Non-Customer":
                         document.getElementById('modal-title-employee').innerText = "Add Time: " + username + " | Role: " + role + " | Status: " + status;
