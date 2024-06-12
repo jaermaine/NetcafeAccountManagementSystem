@@ -5,10 +5,10 @@
     if(!isset($_POST['logout'])){
         header("Location: ../index.php");
     }
-    $user = $_POST['user_id'];
+    $user = $_SESSION['user_id'];
 
     if($_SESSION['role']){
-        $remaining_time = ($_SESSION['original_time'] - (time() - $_SESSION['time_start']));
+        $remaining_time = ($_SESSION['original_time'] - (time() - $_SESSION['start_time']));
         $final_time = $remaining_time > 0 ? $remaining_time : 0; 
         $update_time = "UPDATE account SET time = '$final_time' WHERE user_id = '$user'";
         $conn->query($update_time);
