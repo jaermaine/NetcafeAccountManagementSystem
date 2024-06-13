@@ -19,64 +19,94 @@ $vip = $services_rows[1][2];
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="..\style.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
 </head>
 
 <body>
-    <div class="container mt-5">
-        <div>
-            <a class='text-center'>Regular Rate:</a>
-            <br>
-            <button id="edit-regular" class="button" name="regular-submit">Edit</button>
+    <div class="container">
+        <div class="card-container">
+            <div class="card" data-aos="fade-down" data-aos-delay="250">
+                <div class="card-image"><img src="../frontend/normal.jfif" alt="Profile"></div>
+                <div>
+                    <br>
+                    <div class="text-container">
+                        <a class='text-center'>Regular Rate: ₱30<br></a>
+                        <h5>GTX 1660</h5>
+                        <h5>I5 9600K</h5>
+                        <h5>16GB RAM</h5>
+                        <h5>256GB SSD</h5>
+                        <h5>1TB HDD</h5>
+                        <h5>24" 1080p Monitor</h5>
+                    </div>
+                    <div class="button-container">
+                        <button id="edit-regular" class="button" name="regular-submit">Edit</button>
+                    </div>
+
+                    <div id="Regular-Modal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h3 id="modal-title-regular">Edit Time</h3>
+                            <p id="text-regular"></p>
+                            <form action="../validate/services-validate.php" method="POST">
+                                <a class='text-center'>Rate: </a>
+                                <a class='text-center'><?php echo $regular; ?>PHP</a><br>
+                                <label for="edit_hrs_regular">Edit services rate:</label>
+                                <input type="number" id="edit_hrs_regular" name="edit_hrs_regular" min="0" required>
+                                <br><br>
+                                <input type="text" name="service_name" value='1' hidden>
+                                <input type="submit" name="submit_edit_time" class="button" value="Submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card" data-aos="fade-down" data-aos-delay="500">
+                <div class="card-image"><img src="../frontend/vip.jpg" alt="Profile"></div>
+                <div>
+                    <br>
+                    <div class="text-container">
+                        <a class='text-center'>VIP Rate: ₱50<br></a>
+                        <h5>RTX 3090</h5>
+                        <h5>I9 12600K</h5>
+                        <h5>32GB RAM</h5>
+                        <h5>1TB NVMe SSD</h5>
+                        <h5>2TB HDD</h5>
+                        <h5>27" 1440p Monitor</h5>
+                    </div>
+                    <div class="button-container">
+                        <button id="edit-vip" class="button" name="vip-submit">Edit</button>
+                    </div>
+
+                    <div id="VIP-Modal" class="modal">
+                        <div class="modal-content">
+                            <span class="close">&times;</span>
+                            <h3 id="modal-title-vip">Edit Time</h3>
+                            <p id="text-vip"></p>
+                            <form action="../validate/services-validate.php" method="POST">
+                                <a class='text-center'>Rate: </a>
+                                <a class='text-center'><?php echo $vip; ?>PHP</a><br>
+                                <label for="edit_hrs_vip">Edit services rate:</label>
+                                <input type="number" id="edit_hrs_vip" name="edit_hrs_vip" min="0" required>
+                                <br><br>
+                                <input type="text" name="service_name" value='2' hidden>
+                                <input type="submit" name="submit_edit_time" class="button" value="Submit">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <div>
-            <a class='text-center'>VIP Rate:</a>
-            <br>
-            <button id="edit-vip" class="button" name="vip-submit" value="Edit">Edit</button>
-        </div>
-        <form action="../pages/admin-page.php" method="POST">
-            <input type="submit" class="button" name="back" value="Back">
-        </form>
-    </div>
-
-    <div id="Regular-Modal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3 id="modal-title-regular">Edit Time</h3>
-            <p id="text-regular"></p>
-            <form action="../validate/services-validate.php" method="POST">
-                <a class='text-center'>Rate: </a>
-                <a class='text-center'><?php echo $regular; ?>PHP</a><br>
-                <label for="edit_hrs_regular">Edit services rate:</label>
-                <input type="number" id="edit_hrs_regular" name="edit_hrs_regular" min="0" required>
-                <br><br>
-                <input type = "text" name = "service_name" value = '1' hidden>
-                <input type="submit" name="submit_edit_time" class="button" value="Submit">
-            </form>
-        </div>
-    </div>
-
-    <!-- The Modal for VIP users -->
-    <div id="VIP-Modal" class="modal">
-        <!-- Modal content -->
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h3 id="modal-title-vip">Edit Time</h3>
-            <p id="text-vip"></p>
-            <form action="../validate/services-validate.php" method="POST">
-                <a class='text-center'>Rate: </a>
-                <a class='text-center'><?php echo $vip; ?>PHP</a><br>
-                <label for="edit_hrs_vip">Edit services rate:</label>
-                <input type="number" id="edit_hrs_vip" name="edit_hrs_vip" min="0" required>
-                <br><br>
-                <input type = "text" name = "service_name" value = '2' hidden>
-                <input type="submit" name="submit_edit_time" class="button" value="Submit">
+        <div class="text-center mt-4" data-aos="fade" data-aos-delay="850">
+            <form action="../pages/admin-page.php" method="POST">
+                <input type="submit" class="button" name="back" value="Back">
             </form>
         </div>
     </div>
 </body>
+
 
 <script>
     // Get the modal
@@ -120,5 +150,10 @@ $vip = $services_rows[1][2];
     }
 </script>
 
+
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    AOS.init();
+</script>
 
 </html>
