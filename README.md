@@ -18,7 +18,7 @@ ___
 
 ___
 ## Project Limitations
-1. Consume hours stored in an account when a user started a session
+1. Edit food menu
 
 ___
 ## Account Roles
