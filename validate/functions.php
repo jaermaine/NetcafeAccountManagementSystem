@@ -9,7 +9,7 @@ function checkUsernameValidity($conn, $username)
     $usercount_query = "SELECT COUNT(username) AS numrows FROM account WHERE username = '" . $username . "'";
     $usercount_result = $conn->query($usercount_query);
     $usercount_row = $usercount_result->fetch_column(0);
-    if ($usercount_row != null) {
+    if ($usercount_row != 0) {
         return false;
     } else {
         return true;
