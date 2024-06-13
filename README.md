@@ -19,6 +19,7 @@ ___
 ___
 ## Project Limitations
 1. Edit food menu
+2. User self registration
 
 ___
 ## Account Roles
