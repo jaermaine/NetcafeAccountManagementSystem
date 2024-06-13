@@ -29,9 +29,9 @@ body {
 }
 
 .container {
-  width: 100%;
-  height: 100%;
-  --s: 200px; /* control the size */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
 }
 
 .parent {
@@ -168,7 +168,7 @@ body {
 
 .button:hover {
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
-  transform: translateY(-2px);
+  transform: translateY(-7px);
 }
 
 .button:active {
@@ -262,13 +262,18 @@ body {
   /* Enable scroll if needed */
   background-color: rgb(0, 0, 0);
   /* Fallback color */
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.7);
   /* Black w/ opacity */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal h3, p, label{
+  color: white;
 }
 
 /* Modal Content/Box */
 .modal-content {
-  background-color: #fefefe;
+  background-color: #333333;
   margin: 15% auto;
   /* 15% from the top and centered */
   padding: 20px;
@@ -276,6 +281,16 @@ body {
   width: 40%;
   /* Could be more or less, depending on screen size */
 }
+
+.modal-content input[type="number"] {
+  background-color: black;
+  color: white; /* Changing text color to white for contrast */
+  border: 1px solid #ccc; /* Adding a border for better visibility */
+  padding: 8px; /* Adding padding for better spacing */
+  border-radius: 4px; /* Adding border-radius for a rounded look */
+  width: 75px;
+}
+
 
 /* The Close Button */
 .close {
@@ -496,5 +511,71 @@ menu::-webkit-scrollbar-track{
   .tabs {
       transform: scale(0.6);
   }
+}
+
+.card {
+  margin: 20px; /* Add some space between the cards */
+  border: 1px solid #ccc;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+  background-color: rgb(236, 236, 236);
+  width: 100%;
+  height: 200px; /* Adjusted height to match new card dimensions */
+  overflow: hidden; /* Ensures image stays within rounded borders */
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap; /* If you want the cards to wrap */
+  justify-content: center; /* Center the cards */
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%; /* Ensures the image matches the container size */
+  object-fit: cover; /* Ensures the image covers the entire area without distortion */
+  border-radius: 5px;
+}
+
+.card-image:hover {
+  transform: scale(0.98);
+}
+
+.category {
+  text-transform: uppercase;
+  font-size: 0.9em; /* Slightly larger font for category */
+  font-weight: 600;
+  color: rgb(63, 121, 230);
+  padding: 12px 10px 0;
+}
+
+.heading {
+  font-weight: 600;
+  padding: 12px; /* Slightly increased padding for better spacing */
+}
+
+.author {
+  font-weight: 400;
+  font-size: 13px; /* Slightly larger font for better readability */
+  padding-top: 20px;
+}
+
+.name {
+  font-weight: 600;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center; /* Center the button horizontally */
+  width: 100%;
+}
+
+.text-container h5, a{
+  font-size: 25px;
+  font-family: monospace;
 }
 
