@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['register'])) {
+if (!isset($_POST['register'])) {
     header("Location: ../index.php");
     session_destroy();
 }
