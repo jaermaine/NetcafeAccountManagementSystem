@@ -116,7 +116,6 @@ $vip = $time_result[1][2];
                 <input type="number" id="add_hrs_regular" name="add_hrs_regular" min="0" required>
                 <br><br>
                 <p>Amount to be paid: ₱<span id="regular-amount">0</span></p>
-                <br>
                 <input type="submit" name="submit-addtime" class="button" value="Submit">
             </form>
         </div>
