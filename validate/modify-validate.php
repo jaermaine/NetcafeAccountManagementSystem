@@ -38,26 +38,33 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     // POST method: update the data off the client
     $change = "";
     $user_id = $_POST["user_id"];
-    $username = isset($_POST['username']) ? $_POST['username'] : $_POST['default_username'];
+    $username = $_POST['username'];
+    $default_username = $_POST['default_username'];
+    $new_username = "";
+    if(!empty($username)){
+        $new_username = $username;
+    }
+    else{
+        $new_username = $default_username;
+    }
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
-    $status = $_POST['status_id']; 
+    $status = $_POST['status_id'];
 
     if (!checkUsernameValidity($conn, $username)) {
-        // updates details to the database
-        echo "<script language = 'JavaScript'>
-                            alert('Username Taken');
-                            window.location = \"../pages/modification-page.php?user_id=$user_id\";
-                            </script>";
-        exit;
+        $_SESSION['registration_message'] = "Username Taken";
+        session_write_close();
+        header("Location: ../pages/admin-page.php");
     } else {
         $update = "UPDATE account
-            SET first_name = '$first_name', last_name = '$last_name', status_id = '$status' WHERE user_id = $user_id";
+            SET first_name = '$first_name', last_name = '$last_name', username = '$new_username', status_id = '$status' WHERE user_id = $user_id";
         $results = $conn->query($update);
         if (!$results) {
-            echo "Invalid Query: " . $conn->error;
+            $_SESSION['registration_message'] = "Invalid Query: " . $conn->error;
+            session_write_close();
         }
-        $_SESSION['registration_message'] = "Successfully updated user's details";
+        $_SESSION['registration_message'] = "Details Updated";
+        session_write_close();
         header("location: ../pages/admin-page.php");
     }
 }

@@ -50,7 +50,7 @@ include '../validate/modify-validate.php';
                             <input type="radio" id="vip" name="status" class="statusaccount__input" value="2">
                             <label class="statusaccount__label" for="vip">VIP</label>
 
-                            <input type="radio" id="non-customer" name="status" class="statusaccount__input" value="3">
+                            <input type="radio" id="non-customer" name="status" class="statusaccount__input" <?php if ($status != '3') : ?> disabled <?php endif; ?> value="3">
                             <label class="statusaccount__label" for="non-customer">Non-Customer</label>
 
                             <span class="glider"></span>

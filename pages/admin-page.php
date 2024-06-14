@@ -87,7 +87,7 @@ $vip = $time_result[1][2];
 
         <div class="text-center mt-4">
             <form action="registration-page.php" method="POST">
-                <input type="submit" name="register" class="button" value="<?php echo $_SESSION['register'] = 'Create'; ?>">
+                <input type="submit" name="register" class="button" value="Create">
             </form>
 
             <form action="services-page.php" method="POST">

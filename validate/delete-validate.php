@@ -16,5 +16,5 @@ if (isset($_GET['user_id']) && $array['username'] != $_SESSION['username']) {
     header("location: ../pages/admin-page.php");
 }
 
-header("location: " . $_SERVER['HTTP_REFERER']);
+header("location: ../pages/admin-page.php");
 ?>
