@@ -13,10 +13,8 @@
     $retyped_password = $_POST['retyped_password'];
 
     if($password != $retyped_password){
-        echo "<script language = 'JavaScript'>
-                            alert('Password does not match');
-                            window.location = \"../pages/modify-password.php?\";
-                            </script>";
+        $_SESSION['registration_message'] = "Password Does Not Match";
+        header("Location: ../pages/admin-page.php");
         exit;
     }
 
