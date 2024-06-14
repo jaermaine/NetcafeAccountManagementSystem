@@ -56,7 +56,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
     }
     $first_name = $_POST["first_name"];
     $last_name = $_POST["last_name"];
-    $status = $_POST['status_id'];
+    $status = $_POST['status'];
 
     if (!checkUsernameValidity($conn, $username)) {
         $_SESSION['registration_message'] = "Username Taken";

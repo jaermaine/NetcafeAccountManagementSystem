@@ -43,10 +43,10 @@ if (empty($_SESSION['login'])) {
                     <div class="statsAcc">
                         <div class="tabs">
 
-                            <input type="radio" id="normal" name="status" class="statusaccount__input" value="1" checked>
+                            <input type="radio" id="normal" name="status" class="statusaccount__input" value="1" <?php if ($status != '1' || $status != '2') : ?> disabled <?php endif; ?> checked>
                             <label class="statusaccount__label" for="normal">Normal</label>
 
-                            <input type="radio" id="vip" name="status" class="statusaccount__input" value="2">
+                            <input type="radio" id="vip" name="status" class="statusaccount__input"  <?php if ($status != '1' || $status != '2') : ?> disabled <?php endif; ?>value="2">
                             <label class="statusaccount__label" for="vip">VIP</label>
 
                             <input type="radio" id="non-customer" name="status" class="statusaccount__input" <?php if ($status != '3') : ?> disabled <?php endif; ?> value="3">
