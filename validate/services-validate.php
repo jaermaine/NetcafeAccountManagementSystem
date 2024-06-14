@@ -15,9 +15,7 @@
         if ($update_query === FALSE) {
             echo "Error updating hours: " . $conn->error;
         }
-        echo "<script language = 'JavaScript'>
-                            alert('Successfully Edited Rate');
-                            window.location = \"../pages/admin-page.php\";
-                            </script>";
+        header("Location: ../pages/admin-page.php");
+        $_SESSION['registration_message'] = "Service rate edited";
     }
     ?>
