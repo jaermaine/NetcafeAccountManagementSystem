@@ -39,9 +39,7 @@
         if ($update_query === FALSE) {
             echo "Error updating hours: " . $conn->error;
         }
-        echo "<script language = 'JavaScript'>
-                            alert('Successfully Added Time');
-                            window.location = \"../pages/admin-page.php\";
-                            </script>";
+        header("Location: " . $_SERVER['HTTP_REFERER']);
+        $_SESSION['registration_message'] = "Time Added";
     }
     ?>
