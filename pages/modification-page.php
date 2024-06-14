@@ -1,11 +1,9 @@
 <?php
-session_start();
+include '../validate/modify-validate.php';
 
 if (!isset($_SESSION['login'])) {
     header("Location: ../index.php");
 }
-
-include '../validate/modify-validate.php';
 ?>
 
 <!DOCTYPE html>
