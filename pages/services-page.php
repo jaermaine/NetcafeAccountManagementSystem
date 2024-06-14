@@ -31,7 +31,7 @@ $vip = $services_rows[1][2];
                 <div>
                     <br>
                     <div class="text-container">
-                        <a class='text-center'>Regular Rate: ₱30<br></a>
+                        <a class='text-center'>Regular Rate: <?php echo $regular; ?><br></a>
                         <h5>GTX 1660</h5>
                         <h5>I5 9600K</h5>
                         <h5>16GB RAM</h5>
@@ -67,7 +67,7 @@ $vip = $services_rows[1][2];
                 <div>
                     <br>
                     <div class="text-container">
-                        <a class='text-center'>VIP Rate: ₱50<br></a>
+                        <a class='text-center'>VIP Rate:<?php echo $vip; ?><br></a>
                         <h5>RTX 3090</h5>
                         <h5>I9 12600K</h5>
                         <h5>32GB RAM</h5>
