@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include '../validate/db.php';
 include 'functions.php';
 
