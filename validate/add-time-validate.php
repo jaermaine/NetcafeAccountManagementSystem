@@ -4,6 +4,8 @@
     include 'db.php';
 
     if (!isset($_POST['submit-addtime'])) {
+            header('Location: ../index.php');
+            session_destroy();
     } else {
 
         $userId = $_POST['user_id'];

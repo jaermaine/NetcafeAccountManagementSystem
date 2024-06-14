@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 10, 2024 at 09:45 AM
+-- Generation Time: Jun 14, 2024 at 04:25 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -44,9 +44,10 @@ CREATE TABLE `account` (
 --
 
 INSERT INTO `account` (`user_id`, `first_name`, `last_name`, `username`, `password`, `time`, `role_id`, `status_id`, `active`) VALUES
-(1, 'Jaermaine', 'Domingcil', 'zero', '$2y$10$sw.AIUGjZX8sQGcgRaZSh.8wWwtNSkukTFekZHqwvC1kJOzZpBg5i', 0, 1, 3, 1),
+(1, 'Jaermaine', 'Domingcil', 'zero', '$2y$10$sw.AIUGjZX8sQGcgRaZSh.8wWwtNSkukTFekZHqwvC1kJOzZpBg5i', 0, 1, 3, 0),
 (26, 'john', 'test', 'test', '$2y$10$QC9641mFhD/yeoxnio1uT.v3a1j0d3FP0ObKDGY594NefrF.nIEhC', 36000, 3, 1, 0),
-(28, 'Mark', 'Salazar', 'mj', '$2y$10$uC/WzjN/TYL7YHNWG1a1U.M4HD4ENFQHK2vHSob7Li9c/2rjbuRC2', 89743, 3, 1, 0);
+(28, 'MJ', 'Salazar', 'mj', '$2y$10$uC/WzjN/TYL7YHNWG1a1U.M4HD4ENFQHK2vHSob7Li9c/2rjbuRC2', 10630, 3, 1, 0),
+(29, 'Romuel', 'Borja', 'oxsu', '$2y$10$ytJNvVo4eEiqXRIitvpw/uc4facyedZHJSP4cUz6mXS.VJMxeDi1m', 14397, 3, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -56,7 +57,7 @@ INSERT INTO `account` (`user_id`, `first_name`, `last_name`, `username`, `passwo
 
 CREATE TABLE `foods` (
   `food_id` int(11) NOT NULL,
-  `food_transac_id` int(11) NOT NULL,
+  `food_price` int(11) NOT NULL,
   `food_name` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -112,8 +113,8 @@ CREATE TABLE `services` (
 --
 
 INSERT INTO `services` (`services_id`, `service_name`, `service_rate`) VALUES
-(1, 'Regular', 50),
-(2, 'VIP', 30);
+(1, 'Regular', 30),
+(2, 'VIP', 50);
 
 -- --------------------------------------------------------
 
@@ -157,7 +158,12 @@ CREATE TABLE `transactions` (
 INSERT INTO `transactions` (`transaction_id`, `user_id`, `services_id`, `amount`, `hours_added`, `date`) VALUES
 (11, 26, 1, 500, 10, 'Monday, 10-Jun-2024 07:19:02 CEST'),
 (13, 28, 2, 720, 24, 'Monday, 10-Jun-2024 07:20:55 CEST'),
-(14, 28, 2, 30, 1, 'Monday, 10-Jun-2024 09:13:10 CEST');
+(14, 28, 2, 30, 1, 'Monday, 10-Jun-2024 09:13:10 CEST'),
+(15, 29, 1, 50, 1, 'Tuesday, 11-Jun-2024 17:45:41 CEST'),
+(16, 28, 1, 50, 1, 'Wednesday, 12-Jun-2024 08:25:36 CEST'),
+(19, 29, 1, 60, 3, 'Thursday, 13-Jun-2024 10:52:58 CEST'),
+(20, 28, 1, 40, 2, 'Thursday, 13-Jun-2024 10:53:46 CEST'),
+(21, 29, 1, 20, 1, 'Thursday, 13-Jun-2024 10:54:43 CEST');
 
 --
 -- Indexes for dumped tables
@@ -220,7 +226,7 @@ ALTER TABLE `transactions`
 -- AUTO_INCREMENT for table `account`
 --
 ALTER TABLE `account`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `foods`
@@ -244,7 +250,7 @@ ALTER TABLE `services`
 -- AUTO_INCREMENT for table `transactions`
 --
 ALTER TABLE `transactions`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- Constraints for dumped tables

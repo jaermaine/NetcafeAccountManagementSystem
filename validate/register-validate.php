@@ -4,9 +4,9 @@ session_start();
 include 'db.php';
 include 'functions.php';
 
-/*if (!isset($_POST['submit'])) {
+if (!isset($_POST['submit'])) {
     header("Location: ../index.php");
-}*/
+}
 
 if (!checkUsernameValidity($conn, $_POST['username'])) {
     header("Location: ../pages/admin-page.php");

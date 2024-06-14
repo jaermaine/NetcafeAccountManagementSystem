@@ -5,6 +5,7 @@
 
     if (!isset($_POST['submit_edit_time'])) {
         header("../index.php");
+            session_destroy();
     } else {
 
         $service_id = $_POST['service_name'];
