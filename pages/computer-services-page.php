@@ -76,38 +76,40 @@ $vip = $time_result[1][2];
             <?php
             if (isset($_SESSION['registration_message'])) echo "<h4 class='text-center'>(" . $_SESSION['registration_message'] . ")</h4><br>";
             ?>
-            <h2> List of Users</h2><br> 
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
+            <h2> List of Users</h2><br>
+            <div class="InputContainer">
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." class="myInput" name="myInput">
+        </div>
 
-            <br>
-            <table class="tablee" id="userTable">
-                <tr>
-                    <th>User ID</th>
-                    <th>Username</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Status ID</th>
-                    <th>Remaining Time</th>
-                    <th>Action</th>
-                </tr>
-                <?php
-                // read all row from the database table
-                $sql = "SELECT DISTINCT account.user_id AS 'user_id', account.username AS 'Username', account.first_name AS 'FirstName', account.last_name AS 'LastName', roles.role_name AS Role, status.status_name AS Status, account.time AS Time FROM account 
+        <br>
+        <table class="tablee" id="userTable">
+            <tr>
+                <th>User ID</th>
+                <th>Username</th>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>Status ID</th>
+                <th>Remaining Time</th>
+                <th>Action</th>
+            </tr>
+            <?php
+            // read all row from the database table
+            $sql = "SELECT DISTINCT account.user_id AS 'user_id', account.username AS 'Username', account.first_name AS 'FirstName', account.last_name AS 'LastName', roles.role_name AS Role, status.status_name AS Status, account.time AS Time FROM account 
             JOIN roles ON account.role_id = roles.role_id 
             JOIN status ON account.status_id = status.status_id
             -- query to exclude non - customer in status and role is admin and staff to limit staff actions
             WHERE account.role_id NOT IN (1, 2) 
             ORDER BY Status DESC";
-                $results = $conn->query($sql);
+            $results = $conn->query($sql);
 
-                if (!$results) {
-                    die("Invalid query: " . $conn->error);
-                }
+            if (!$results) {
+                die("Invalid query: " . $conn->error);
+            }
 
-                //read data from each row
-                while ($row = $results->fetch_assoc()) {
-                    $row['Time'] = number_format(($row['Time'] / 3600));
-                    echo " <tr>
+            //read data from each row
+            while ($row = $results->fetch_assoc()) {
+                $row['Time'] = number_format(($row['Time'] / 3600));
+                echo " <tr>
             <td>$row[user_id]</td>
             <td>$row[Username]</td>
             <td>$row[FirstName]</td>
@@ -123,12 +125,12 @@ $vip = $time_result[1][2];
             </td>
         </tr>
             ";
-                }
-                ?>
-                </tbody>
-            </table>
-            <!-- back button -->
-            <a class='button' href='../pages/staff-page.php'>Return</a>
+            }
+            ?>
+            </tbody>
+        </table>
+        <!-- back button -->
+        <a class='button' href='../pages/staff-page.php'>Return</a>
         </div>
 
         <!-- JS for search functionality -->
