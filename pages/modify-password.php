@@ -6,6 +6,7 @@ if (empty($_SESSION['login'])) {
     session_destroy();
 }
 
+$userid = $_POST['user_id'];
 ?>
 
 <!DOCTYPE html>
@@ -26,12 +27,12 @@ if (empty($_SESSION['login'])) {
                 <div class="Login">
                     <div class="TextFields1">
 
-                        <input type="text" id="Uname" name="user_id" value=<?php echo $_POST['user_id']; ?> hidden>
+                        <input type="text" id="Uname" name="user_id" value=<?php echo $userid; ?> hidden>
 
-                        <input type="password" id="Uname" name="password" placeholder="Change Password" required><br>
+                        <input type="password" id="Uname" name="password" placeholder="Change Password"><br>
                         <br>
 
-                        <input type="password" id="Uname" name="retyped_password" placeholder="Re-type Password" required><br>
+                        <input type="password" id="Uname" name="retyped_password" placeholder="Re-type Password"><br>
                         <br>
                     </div>
 
@@ -39,9 +40,7 @@ if (empty($_SESSION['login'])) {
                     <input type="submit" class="button" name="submit" value="Confirm">
             </form>
 
-            <form action="../pages/modification-page.php" method="POST">
-                <input type="submit" class="button" name="back" value="Back">
-            </form>
+            <a class='button' href='../pages/modification-page.php?user_id=<?php echo $userid;?>'>Back</a>
         </div>
 
 
