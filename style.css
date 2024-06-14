@@ -190,24 +190,24 @@ th, td {
 }
 
 th {
-  background-color: #2C3E50; /* Dark blue-gray */
-  color: #ECF0F1; /* Light text for contrast */
+  background-color: #28242c; /* Dark gray */
+  color: #ecf0f1; /* Light text for contrast */
   height: 70px;
 }
 
 tr:nth-child(even) {
-  background-color: #517394; /* Darker gray-blue */
-  color:#FFFFFF;
+  background-color: #595062; /* Darker shade for even rows */
+  color: #ecf0f1; /* Light text for contrast */
 }
 
 tr:nth-child(odd) {
-  background-color: #2aa7d5; /* Slightly lighter gray-blue */
-  color: #ECF0F1; /* Light text for contrast */
+  background-color: #28242c; /* Slightly lighter shade for odd rows */
+  color: #ecf0f1; /* Light text for contrast */
 }
 
 tr:hover {
-  background-color: #2C3E50; /* Much lighter shade of gray-blue */
-  color: #2C3E50; /* Darker text for contrast */
+  background-color: #80738c; /* Darker shade for hover */
+  color: #ecf0f1; /* Light text for contrast */
 }
 
 h1, h2, h4{
