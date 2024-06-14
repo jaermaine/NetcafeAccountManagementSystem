@@ -58,6 +58,8 @@ include '../validate/db.php';
         text-decoration: none;
         color: inherit;
         margin-bottom: 20px;
+        height: 450px;
+        transition: transform 0.3s ease
     }
 
     .card img {
@@ -75,10 +77,20 @@ include '../validate/db.php';
 
     .card:hover {
         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transform: scale(1.09);
     }
 
     form {
         margin-top: 20px;
+    }
+
+    .services-image img {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 400px;
+        border-radius: 10px;
     }
 
     .column {
@@ -88,34 +100,27 @@ include '../validate/db.php';
 </style>
 
 <body>
+    <br><br>
     <?php
-    echo "<h1>Welcome back " . $_SESSION['username'] . "</h1>";
+    echo "<h1>Welcome Back " . $_SESSION['username'] . "</h1>";
     ?>
-
+    <br><br>
     <div class="row">
         <div class="column">
             <a href="../pages/computer-services-page.php" class="card">
-                <img src="../Normal_pic.jpg" alt="Image">
-                <div class="text-content">
-                    <h2>Computer Services</h2>
-                    <p>Click to serve customer</p>
-                </div>
+                <div class="services-image"><img src="../frontend/computerservice.png" alt="Image"></div>
             </a> <!-- Closed the anchor tag here -->
         </div>
 
         <div class="column">
             <a href="../pages/menu-page.php" class="card">
-                <img src="../coffee.jpg" alt="Image">
-                <div class="text-content">
-                    <h2>Menu</h2>
-                    <p>Click to serve customer</p>
-                </div>
+                <div class="services-image"><img src="../frontend/foodorder.png" alt="Image"></div>
             </a> <!-- Closed the anchor tag here -->
         </div>
     </div>
-
+    <br>
     <form action="..\validate\logout-validate.php" method="POST">
-        <input type="submit" value="Logout">
+        <input type="submit" class="button" value="Logout">
     </form>
 
 </body>
