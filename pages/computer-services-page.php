@@ -2,6 +2,12 @@
 session_start();
 
 include '../validate/db.php';
+include '../validate/functions.php';
+
+$time_result = retrieveServices($conn);
+
+$regular = $time_result[0][2];
+$vip = $time_result[1][2];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -148,16 +154,15 @@ include '../validate/db.php';
                 <span class="close">&times;</span>
                 <h3 id="modal-title-regular">Add Time</h3>
                 <p id="text-regular"></p>
-                <form action="../validate/add-time-validate.php" method="POST" id="RegularForm">
+                <form action="../validate/add-time-validate.php" method="POST">
                     <input type="hidden" id="user_id_regular" name="user_id">
                     <input type="hidden" id="status_id_regular" name="status_id" value="Regular">
-                    <p>Rate: 50php/hour</p>
+                    <p>Rate: <?php echo $regular; ?>php/hour</p>
                     <label for="add_hrs_regular">Enter additional hours:</label>
                     <input type="number" id="add_hrs_regular" name="add_hrs_regular" min="0" required>
                     <br><br>
                     <p>Amount to be paid: ₱<span id="regular-amount">0</span></p>
-                    <br>
-                    <input type="submit" name="submit-addtime" value="Submit">
+                    <input type="submit" name="submit-addtime" class="button" value="Submit">
                 </form>
             </div>
         </div>
@@ -169,16 +174,16 @@ include '../validate/db.php';
                 <span class="close">&times;</span>
                 <h3 id="modal-title-vip">Add Time</h3>
                 <p id="text-vip"></p>
-                <form action="../validate/add-time-validate.php" method="POST" id="VIPForm">
+                <form action="../validate/add-time-validate.php" method="POST">
                     <input type="hidden" id="user_id_vip" name="user_id">
                     <input type="hidden" id="status_id_vip" name="status_id" value="VIP">
-                    <p>Rate: 30php/hour</p>
+                    <p>Rate: <?php echo $vip; ?>php/hour</p>
                     <label for="add_hrs_vip">Enter additional hours:</label>
                     <input type="number" id="add_hrs_vip" name="add_hrs_vip" min="0" required>
                     <br><br>
                     <p>Amount to be paid: ₱<span id="vip-amount">0</span></p>
                     <br>
-                    <input type="submit" name="submit-addtime" value="Submit">
+                    <input type="submit" class="button" name="submit-addtime" value="Submit">
                 </form>
             </div>
         </div>
