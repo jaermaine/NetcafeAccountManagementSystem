@@ -33,17 +33,31 @@ if (!isset($_SESSION['register'])) {
                         <br>
                     </div>
                     <input type="password" id="Uname" name="password" placeholder="Password" required><br>
+
                     <div class="dropdown">
                         <div class="select" onclick="toggleDropdown()">
                             <span class="selected">Choose a Role</span>
                             <div class="caret"></div>
                         </div>
                         <ul class="menu">
-                            <li><label><input type="radio" name="role" value="1" onclick="selectRole('Admin')">Admin</label></li>
-                            <li><label><input type="radio" name="role" value="2" onclick="selectRole('Staff')">Staff</label></li>
-                            <li><label><input type="radio" name="role" value="3" onclick="selectRole('User')" checked>User</label></li>
+                            <li onclick="selectRole('Admin')">
+                                <label>
+                                    <input type="radio" name="role" value="1">Admin
+                                </label>
+                            </li>
+                            <li onclick="selectRole('Staff')">
+                                <label>
+                                    <input type="radio" name="role" value="2">Staff
+                                </label>
+                            </li>
+                            <li onclick="selectRole('User')">
+                                <label>
+                                    <input type="radio" name="role" value="3" checked>User
+                                </label>
+                            </li>
                         </ul>
                     </div>
+
 
                     <div class="statsAcc">
                         <div class="tabs">
@@ -83,6 +97,14 @@ if (!isset($_SESSION['register'])) {
         function selectRole(role) {
             var selectedText = document.querySelector('.dropdown .selected');
             selectedText.textContent = role;
+
+            // Find the radio input associated with the clicked role and check it
+            var radios = document.querySelectorAll('.dropdown input[type="radio"]');
+            radios.forEach(function(radio) {
+                if (radio.nextSibling.textContent.trim() === role) {
+                    radio.checked = true;
+                }
+            });
 
             toggleDropdown(); // Close the dropdown after selecting an option
         }
