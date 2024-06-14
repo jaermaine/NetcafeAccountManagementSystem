@@ -8,7 +8,7 @@ if (!isset($_POST['submit'])) {
     header("Location: ../index.php");
 }
 
-if (!checkUsernameValidity($conn, $_POST['username'])) {
+if (checkUsernameValidity($conn, $_POST['username'])) {
     header("Location: ../pages/admin-page.php");
     $_SESSION['registration_message'] = "Username Taken";
 } else {
