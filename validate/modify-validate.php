@@ -1,6 +1,11 @@
 <?php
 session_start();
 
+if (empty($_SESSION['login'])) {
+    header('Location: ../index.php');
+    session_destroy();
+}
+
 include '../validate/db.php';
 include 'functions.php';
 

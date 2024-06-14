@@ -3,8 +3,9 @@
 
     include 'db.php';
 
-    if (!isset($_SESSION['login'])) {
-        header("Location: ../index.php");
+    if (empty($_SESSION['login'])) {
+        header('Location: ../index.php');
+        session_destroy();
     }
 
     $user_id = $_POST['user_id'];

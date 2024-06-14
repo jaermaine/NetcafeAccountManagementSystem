@@ -1,8 +1,9 @@
 <?php
 
-/*if ( !isset($_GET['user_id']) && !isset($_POST['user_id']) ){
-    header("Location: ../index.php");session_destroy();
-}*/
+if (empty($_SESSION['login'])) {
+    header('Location: ../index.php');
+    session_destroy();
+}
 
 function checkUsernameValidity($conn, $username)
 {

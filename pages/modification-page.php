@@ -1,8 +1,9 @@
 <?php
 include '../validate/modify-validate.php';
 
-if (!isset($_SESSION['login'])) {
-    header("Location: ../index.php");
+if (empty($_SESSION['login'])) {
+    header('Location: ../index.php');
+    session_destroy();
 }
 ?>
 

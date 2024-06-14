@@ -3,8 +3,9 @@ session_start();
 
 include '../validate/db.php';
 
-if(!isset($_SESSION['login'])){
-    header("Location ../index.php");
+if (empty($_SESSION['login'])) {
+    header('Location: ../index.php');
+    session_destroy();
 }
 $username = $_GET['user_id'];
 
