@@ -355,7 +355,7 @@ include '../validate/db.php';
                 <br><br>
                 <button id="payment-button" type="button" onclick="calculateChange(event)" class="button">Pay</button>
                 <br><br>
-                <h3>Change: ₱<span id="change">0</span></h>
+                <h3>Change: ₱ <span id="change">0</span></h>
             </form>
             <button type="button" id="completeTransaction" style="display: none;" onclick="redirectToReceipt()" class="button">Complete
                 Transaction</button>
