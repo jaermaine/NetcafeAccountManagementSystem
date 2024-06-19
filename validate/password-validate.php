@@ -2,6 +2,7 @@
     session_start();
 
     include 'db.php';
+    include 'functions.php';
 
     if (empty($_SESSION['login'])) {
         header('Location: ../index.php');
@@ -14,6 +15,12 @@
 
     if($password != $retyped_password){
         $_SESSION['registration_message'] = "Password Does Not Match";
+        header("Location: ../pages/admin-page.php");
+        exit;
+    }
+
+    if(!validatePassword($conn, $password)){
+        $_SESSION['registration_message'] = "Invalid Password";
         header("Location: ../pages/admin-page.php");
         exit;
     }
